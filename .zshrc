@@ -42,8 +42,6 @@ source $ZSH/oh-my-zsh.sh
 
 alias es="subl -n ."
 alias ackr="ack -C 6 --ignore-dir=tmp --ignore-dir=coverage --ignore-dir=log"
-#alias grep="noglob grep"
-#alias ctagsr="ctags -R --exclude=log --exclude=coverage --exclude=.git *.rb"
 alias ctagsr="ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.html.haml.yml'"
 alias st="open -a SourceTree ."
 alias ggfrp="gup && ggpush"
