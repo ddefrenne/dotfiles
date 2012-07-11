@@ -1,15 +1,21 @@
 "call pathogen#infect()
 set shell=zsh
 "
-set nocompatible
-set nowrap
-set number
+set nocompatible "do not use vi-compatibility
 set encoding=utf-8
+
+set nowrap " don't display lines continues on the next line when they don't fit on the screen
+set number "show linenumbers
+set textwidth=0 " don't break a line after a certain number of chars has been met
 syntax enable
-set tabstop=2 shiftwidth=2
+"set noswapfile
+
+set expandtab " use spaces, not tabs
+set tabstop=2 " 1 tab == 2 spaces
+set shiftwidth=2 " controls how many columns text is indented with >> and <<
+
 set showcmd " display incomplete commands
 set showmode " show the mode you're in
-set expandtab " use spaces, not tabs
 set scrolloff=3 " show 3 lines before and after the cursor
 
 set visualbell " no beeping
@@ -21,9 +27,10 @@ set hlsearch " highlight matches
 set incsearch " incremental searching
 set ignorecase " searches are case insensitive ...
 set smartcase " ... unless they contain at least one capital letter
-set grepprg=ack
+set grepprg=ack " use Ack when calling :grep
 
-set cursorline
+set colorcolumn=80 "show vertical line on column 80
+set cursorline " highlight current line
 
 filetype plugin indent on " load file type plugins + indentation
 
