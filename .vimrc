@@ -46,9 +46,10 @@ se t_Co=256
 if has("gui_running")
   set guioptions=egmrt
   "colorscheme pyte
-  colorscheme codeschool
+  "colorscheme codeschool
   "colorscheme molokai
-  set background=dark
+  set background=light
+  colorscheme solarized
   set guioptions-=T " remove top toolbar
 else
   colorscheme wombat256
