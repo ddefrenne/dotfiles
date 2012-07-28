@@ -53,7 +53,8 @@ if has("gui_running")
   "colorscheme solarized
   set guioptions-=T " remove top toolbar
 else
-  colorscheme wombat256
+  "colorscheme wombat256
+  colorscheme molokai
   set background=dark
 endif
 
