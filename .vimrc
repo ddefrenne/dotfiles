@@ -61,6 +61,17 @@ endif
 "set guifont=Meslo\ LG\ M\ DZ:h12
 set guifont=Inconsolata:h14
 
+"Switch between relative and absolute line numbers
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunction
+
+nnoremap <C-n> :call NumberToggle()<cr>
+
 " change color of the cursor depending on the mode
 if &term =~ "^xterm"
   :silent !echo -ne "\033]12;red\007"
