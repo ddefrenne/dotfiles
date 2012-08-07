@@ -89,7 +89,9 @@ autocmd BufWritePre * :%s/\s\+$//e " autoremove trailing whitespace
 
 cmap <C-F12> :SyntasticToggleMode<CR>
 
+map <C-H> <C-W>h
 map <C-J> <C-W>j
 map <C-K> <C-W>k
+map <C-L> <C-W>l
 
 let g:slime_target = "tmux"
