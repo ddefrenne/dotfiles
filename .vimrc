@@ -5,7 +5,8 @@ set nocompatible "do not use vi-compatibility
 set encoding=utf-8
 
 set nowrap " don't display lines continues on the next line when they don't fit on the screen
-set number "show linenumbers
+"set number "show linenumbers
+set rnu "show relative linenumbers
 set textwidth=0 " don't break a line after a certain number of chars has been met
 syntax enable
 "set noswapfile
@@ -48,7 +49,7 @@ if has("gui_running")
   "colorscheme pyte
   "colorscheme codeschool
   colorscheme molokai
-  set background=light
+  set background=dark
   "colorscheme solarized
   set guioptions-=T " remove top toolbar
 else
