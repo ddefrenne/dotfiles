@@ -72,6 +72,9 @@ endfunction
 
 nnoremap <C-n> :call NumberToggle()<cr>
 
+:au FocusLost * :set number
+:au FocusGained * :set relativenumber
+
 " change color of the cursor depending on the mode
 if &term =~ "^xterm"
   :silent !echo -ne "\033]12;red\007"
