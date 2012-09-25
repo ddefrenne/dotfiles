@@ -34,6 +34,7 @@ set grepformat=%f:%l:%c:%m
 
 set colorcolumn=80 " show vertical line on column 80
 set cursorline " highlight current line
+set cursorcolumn " highlight current column
 
 filetype plugin indent on " load file type plugins + indentation
 
