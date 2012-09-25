@@ -3,7 +3,7 @@ html=.html.haml,.haml,.html.erb
 --type-add
 css=.sass,.less,.scss
 --type-set
-ignoreables=log,.tmp,.idea,.pdf
+ignoreables=.log,.tmp,.idea,.pdf
 --ignore-dir=.idea
 --ignore-dir=tmp
 --ignore-dir=coverage
