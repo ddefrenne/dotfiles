@@ -2,6 +2,8 @@
 html=.html.haml,.haml,.html.erb
 --type-add
 css=.sass,.less,.scss
+--type-add
+js=.js.haml,.js.erb,.coffee
 --type-set
 ignoreables=.log,.tmp,.idea,.pdf
 --ignore-dir=.idea
