@@ -81,7 +81,7 @@ endfunction
 
 nnoremap <C-n> :call NumberToggle()<cr>
 
-:au FocusLost * set :number
+:au FocusLost * :set number
 :au FocusGained * :set relativenumber
 
 " THE FOLLOWING ONLY WORKS IN GRAPHICAL MODE
