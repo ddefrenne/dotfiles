@@ -32,7 +32,7 @@ set grepprg=ack\ --nogroup\ --column\ --ignore-dir=tmp\ --ignore-dir=coverage\ -
 " %m matches the text on the line
 set grepformat=%f:%l:%c:%m
 
-set colorcolumn=80 " show vertical line on column 80
+set colorcolumn=120 " show vertical line on column 120
 set cursorline " highlight current line
 set cursorcolumn " highlight current column
 
