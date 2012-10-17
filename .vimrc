@@ -2,15 +2,28 @@ set shell=zsh
 
 set nocompatible " do not use vi-compatibility
 set encoding=utf-8
-set nowrap " don't display lines continues on the next line when they don't fit the screen
-"set number " show linenumbers
-set rnu "show relative line numbers
+
 syntax enable
-set tabstop=2 shiftwidth=2
-set showcmd " display incomplete commands
+
+set showcmd " show partial commands
 set showmode " show the mode you're in
+
+" Whitespace
+"set nowrap
+set wrap
+set showbreak="\ \ \ \ \ "
+set breakat=" ^I!*-+;:,./?"
+set linebreak
 set expandtab " use spaces, not tabs
+set tabstop=2 shiftwidth=2
+
+set number "show linenumbers
+"set foldcolumn=2 " set left gutter
+"set rnu "show relative line numbers
 set scrolloff=3 " show 3 lines before and after the cursor
+set colorcolumn=80,120 " show vertical line on column 120
+set cursorline " highlight current line
+set cursorcolumn " highlight current column
 
 set visualbell " no beeping
 
@@ -24,7 +37,7 @@ set smartcase " ... unless they contain at least one capital letter
 
 " --nogroup tells Ack to output the linenumber
 " --column tells Ack to output the column number
-set grepprg=ack\ --nogroup\ --column\ --ignore-dir=tmp\ --ignore-dir=coverage\ --ignore-dir=log\ $*
+"set grepprg=ack\ --nogroup\ --column\ --ignore-dir=tmp\ --ignore-dir=coverage\ --ignore-dir=log\ $*
 " %c matches the column number
 " $* is replaced with any arguments supplied to the :grep command
 " %f matches the filename
@@ -32,35 +45,26 @@ set grepprg=ack\ --nogroup\ --column\ --ignore-dir=tmp\ --ignore-dir=coverage\ -
 " %m matches the text on the line
 set grepformat=%f:%l:%c:%m
 
-set colorcolumn=120 " show vertical line on column 120
-set cursorline " highlight current line
-set cursorcolumn " highlight current column
-
 filetype plugin indent on " load file type plugins + indentation
 
 " solarized options
 " soms zijn er toch problemen met Solarized en de kleuren. Gebruik dan:
 " se t_Co=16 (NIET set, maar se)
-se t_Co=256
+set t_Co=256
 "let g:solarized_termcolors = 16
-"let g:solarized_termcolors = 256 " bij gebruik van een niet solarized-colored terminal
 "let g:solarized_visibility = "high"
 "let g:solarized_contrast = "high"
 
 if has("gui_running")
-  set guioptions=egmrt
-  "colorscheme pyte
-  "colorscheme codeschool
-  colorscheme molokai
-  set background=dark
+  set background=light
   set guioptions-=T " remove top toolbar
 else
-  colorscheme wombat256
   set background=dark
 endif
+let g:solarized_termcolors = 256 " bij gebruik van een niet solarized-colored terminal
+colorscheme solarized
 
 "" Font
-"set guifont=Meslo\ LG\ M\ DZ:h12
 set guifont=Inconsolata:h14
 
 " change color of the cursor depending on the mode
@@ -80,10 +84,10 @@ function! NumberToggle()
   endif
 endfunction
 
-nnoremap <C-n> :call NumberToggle()<cr>
+"nnoremap <C-n> :call NumberToggle()<cr>
 
-:au FocusLost * :set number
-:au FocusGained * :set relativenumber
+":au FocusLost * :set number
+":au FocusGained * :set relativenumber
 
 " THE FOLLOWING ONLY WORKS IN GRAPHICAL MODE
 " Change cursor shape depending on the mode
@@ -94,7 +98,6 @@ if &term =~ '^xterm'
   " 2 -> solid block
   " 3 -> blinking underscore
   " 4 -> solid underscore
-
   let &t_SI = "\<Esc>[3"
   let &t_EI = "\<Esc>[3"
 endif
@@ -108,7 +111,7 @@ map <C-J> <C-W>j
 map <C-K> <C-W>k
 map <C-L> <C-W>l
 
-let g:slime_target = "tmux"
+"let g:slime_target = "tmux"
 
 " mapping for ctags
-:nnoremap <f6> :!ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.css.html.haml.yml.erb'"<CR>
+:nnoremap <f6> :!ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.css.html.haml.yml.erb'<CR>
