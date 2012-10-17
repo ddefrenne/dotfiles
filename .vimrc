@@ -3,6 +3,7 @@ set shell=sh
 set hidden " makes vim work like every other multuple-file editor
 set nocompatible " do not use vi-compatibility
 set encoding=utf-8
+filetype plugin indent on " load file type plugins + indentation
 
 syntax enable
 
@@ -11,25 +12,24 @@ set showmode " show the mode you're in
 set clipboard=unnamed " all operations work with the OS clipboard
 
 " Whitespace
-set nowrap
+set nowrap " don't display lines continues on the next line when they don't fit the screen
+set tabstop=2 shiftwidth=2
+set expandtab " use spaces, not tabs
 "set wrap
 "set showbreak="\ \ \ \ \ "
 "set breakat=" ^I!*-+;:,./?"
 "set linebreak
-set expandtab " use spaces, not tabs
-set tabstop=2 shiftwidth=2
+"set number " show linenumbers
+set rnu "show relative line numbers
 
-set number "show linenumbers
-"set foldcolumn=2 " set left gutter
-"set rnu "show relative line numbers
+set backspace=indent,eol,start " backspace through everything in insert mode
+
 set scrolloff=3 " show 3 lines before and after the cursor
-set colorcolumn=80,120 " show vertical line on column 120
+set colorcolumn=80,120 " show vertical line on columns 80 & 120
 set cursorline " highlight current line
 set cursorcolumn " highlight current column
 
 set visualbell " no beeping
-
-set backspace=indent,eol,start " backspace through everything in insert mode
 
 "" Searching
 set hlsearch " highlight matches
@@ -47,24 +47,20 @@ set smartcase " ... unless they contain at least one capital letter
 " %m matches the text on the line
 set grepformat=%f:%l:%c:%m
 
-filetype plugin indent on " load file type plugins + indentation
-
-" solarized options
+" SOLARIZED OPTIONS
 " soms zijn er toch problemen met Solarized en de kleuren. Gebruik dan:
 " se t_Co=16 (NIET set, maar se)
 set t_Co=256
-"let g:solarized_termcolors = 16
+"let g:solarized_termcolors = 256 " bij gebruik van een niet solarized-colored terminal
 "let g:solarized_visibility = "high"
 "let g:solarized_contrast = "high"
 
 if has("gui_running")
-  set background=light
   set guioptions-=T " remove top toolbar
   set columns=240
-else
-  set background=dark
 endif
-let g:solarized_termcolors = 256 " bij gebruik van een niet solarized-colored terminal
+set background=dark
+
 colorscheme solarized
 
 "" Font
@@ -107,14 +103,10 @@ endif
 
 autocmd BufWritePre * :%s/\s\+$//e " autoremove trailing whitespace
 
-cmap <C-F12> :SyntasticToggleMode<CR>
-
 map <C-H> <C-W>h
 map <C-J> <C-W>j
 map <C-K> <C-W>k
 map <C-L> <C-W>l
-
-"let g:slime_target = "tmux"
 
 " mapping for ctags
 :nnoremap <f6> :!ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.css.html.haml.yml.erb'<CR>
