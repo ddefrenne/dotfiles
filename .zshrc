@@ -29,10 +29,14 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey '^Xe' edit-command-line
 
+# Use vi-mode
+bindkey -v
+bindkey '^R' history-incremental-search-backward
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx ruby gem brew bundler rails3 rvm rake extract autojump cloudapp)
+plugins=(git osx ruby gem brew bundler rails3 rvm rake extract autojump cloudapp vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
