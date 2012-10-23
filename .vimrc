@@ -1,5 +1,6 @@
 set shell=sh
 
+set hidden " makes vim work like every other multuple-file editor
 set nocompatible " do not use vi-compatibility
 set encoding=utf-8
 
