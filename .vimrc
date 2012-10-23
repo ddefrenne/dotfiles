@@ -1,4 +1,4 @@
-set shell=zsh
+set shell=sh
 
 set nocompatible " do not use vi-compatibility
 set encoding=utf-8
