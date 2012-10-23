@@ -1,11 +1,24 @@
---type-add
-html=.html.haml,.haml,.html.erb
---type-add
-css=.sass,.less,.scss
---type-add
-js=.js.haml,.js.erb,.coffee
---type-set
-ignoreables=.log,.tmp,.idea,.pdf
---ignore-dir=.idea
---ignore-dir=tmp
---ignore-dir=coverage
+# Ack 2 settings
+################
+--ignore-file=ext:DS_Store
+--ignore-file=ext:psd
+--ignore-file=ext:rvmrc
+
+--ignore-directory=is:log
+--ignore-directory=is:tmp
+--ignore-directory=is:.sass-cache
+--ignore-directory=is:coverage
+
+# Ack 1 settings
+################
+#--type-add
+#html=.html.haml,.haml,.html.erb
+#--type-add
+#css=.sass,.less,.scss
+#--type-add
+#js=.js.haml,.js.erb,.coffee
+#--type-set
+#ignoreables=.log,.tmp,.idea,.pdf
+#--ignore-dir=.idea
+#--ignore-dir=tmp
+#--ignore-dir=coverage
