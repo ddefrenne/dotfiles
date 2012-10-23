@@ -7,13 +7,14 @@ syntax enable
 
 set showcmd " show partial commands
 set showmode " show the mode you're in
+set clipboard=unnamed " all operations work with the OS clipboard
 
 " Whitespace
-"set nowrap
-set wrap
-set showbreak="\ \ \ \ \ "
-set breakat=" ^I!*-+;:,./?"
-set linebreak
+set nowrap
+"set wrap
+"set showbreak="\ \ \ \ \ "
+"set breakat=" ^I!*-+;:,./?"
+"set linebreak
 set expandtab " use spaces, not tabs
 set tabstop=2 shiftwidth=2
 
