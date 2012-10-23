@@ -59,6 +59,7 @@ set t_Co=256
 if has("gui_running")
   set background=light
   set guioptions-=T " remove top toolbar
+  set columns=240
 else
   set background=dark
 endif
