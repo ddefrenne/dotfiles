@@ -5,6 +5,8 @@ set nocompatible " do not use vi-compatibility
 set encoding=utf-8
 filetype plugin indent on " load file type plugins + indentation
 
+set autoread " autoload a file when changed from the outside (like when resetting a file with git)
+
 syntax enable
 
 set showcmd " show partial commands
