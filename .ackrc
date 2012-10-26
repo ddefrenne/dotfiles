@@ -10,15 +10,15 @@
 --ignore-directory=is:.sass-cache
 --ignore-directory=is:coverage
 
+--type-add
+html=.html.haml,.haml,.html.erb
+--type-add
+css=.sass,.less,.scss
+--type-add
+js=.js.haml,.js.erb,.coffee
+
 # Ack 1 settings
 ################
-#--type-add
-#html=.html.haml,.haml,.html.erb
-#--type-add
-#css=.sass,.less,.scss
-#--type-add
-#js=.js.haml,.js.erb,.coffee
-#--type-set
 #ignoreables=.log,.tmp,.idea,.pdf
 #--ignore-dir=.idea
 #--ignore-dir=tmp
