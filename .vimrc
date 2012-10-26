@@ -110,3 +110,8 @@ map <C-L> <C-W>l
 
 " mapping for ctags
 :nnoremap <f6> :!ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.css.html.haml.yml.erb'<CR>
+
+" add 'binding.pry' on a new line below the current one
+:map ,p obinding.pry<ESC>:w<CR>
+" add 'binding.pry' on a new line above the current one
+:map ,P Obinding.pry<ESC>:w<CR>
