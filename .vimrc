@@ -116,3 +116,11 @@ map <C-L> <C-W>l
 :map ,p obinding.pry<ESC>:w<CR>
 " add 'binding.pry' on a new line above the current one
 :map ,P Obinding.pry<ESC>:w<CR>
+
+" bindings for screen.vim
+let g:ScreenImpl = 'Tmux'
+map <F4> :ScreenShellVertical<CR>
+command -nargs=? -complete=shellcmd W :w | :call ScreenShellSend("load '".@%."';")
+map <Leader>r :w<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
+map <Leader>e :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
+map <Leader>b :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
