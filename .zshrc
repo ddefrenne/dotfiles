@@ -1,5 +1,3 @@
-REPORTTIME=10
-
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -9,11 +7,18 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
+
+# Change this value to set how frequently ZSH updates¬
+export UPDATE_ZSH_DAYS=13
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -24,32 +29,20 @@ ZSH_THEME="robbyrussell"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
-# enable the use of C-x C-e to edit the current line in an editor
-autoload edit-command-line
-zle -N edit-command-line
-bindkey '^Xe' edit-command-line
-
-# Use vi-mode
-bindkey -v
-bindkey '^R' history-incremental-search-backward
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx ruby gem brew bundler rails3 rvm rake extract autojump cloudapp vi-mode)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-alias es="subl -n ."
-alias ackr="ack -C 6 --ignore-dir=tmp --ignore-dir=coverage --ignore-dir=log"
-alias ctagsr="ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.html.haml.yml'"
-alias st="open -a SourceTree ."
-alias ggfrp="gup && ggpush"
-alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
-
 # Customize to your needs...
-export PATH=/usr/local/Cellar:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+alias ctagsr="ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.html.haml.yml'"
+
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export PATH=/usr/local/Cellar:/$HOME/.rvm/bin:$PATH
 export EDITOR="vim"
+export PAGER="less -R"
 
 [[ -s "/Users/"$USERNAME"/.rvm/scripts/rvm" ]] && source "/Users/"$USERNAME"/.rvm/scripts/rvm"  # This loads RVM into a shell session.
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
