@@ -58,10 +58,11 @@ set t_Co=256
 if has("gui_running")
   set guioptions-=T " remove top toolbar
   set columns=240
+  colorscheme molokai
+else
+  colorscheme solarized
 endif
 set background=dark
-
-colorscheme solarized
 
 "" Font
 set guifont=Inconsolata:h14
