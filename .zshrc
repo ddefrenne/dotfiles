@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -43,5 +43,6 @@ export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 export PATH=/usr/local/Cellar:/$HOME/.rvm/bin:$PATH
 export EDITOR="vim"
 export PAGER="less -R"
+export DEFAULT_USER=$USERNAME
 
 [[ -s "/Users/"$USERNAME"/.rvm/scripts/rvm" ]] && source "/Users/"$USERNAME"/.rvm/scripts/rvm"  # This loads RVM into a shell session.
