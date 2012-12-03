@@ -45,4 +45,3 @@ export EDITOR="vim"
 export PAGER="less -R"
 
 [[ -s "/Users/"$USERNAME"/.rvm/scripts/rvm" ]] && source "/Users/"$USERNAME"/.rvm/scripts/rvm"  # This loads RVM into a shell session.
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
