@@ -39,8 +39,8 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 alias ctagsr="ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.html.haml.yml'"
 
-export PATH=/usr/local/Cellar:/$HOME/.rvm/bin:$PATH
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/usr/local/Cellar:$HOME/.rvm/bin:$PATH
 export EDITOR="vim"
 export PAGER="less -R"
 export DEFAULT_USER=$USERNAME
