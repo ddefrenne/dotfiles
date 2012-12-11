@@ -11,7 +11,9 @@ syntax enable
 
 set showcmd " show partial commands
 set showmode " show the mode you're in
-set clipboard=unnamed " all operations work with the OS clipboard
+if $TMUX == ''
+  set clipboard=unnamed " all operations work with the OS clipboard
+endif
 
 " Whitespace
 set nowrap " don't display lines continues on the next line when they don't fit the screen
