@@ -39,7 +39,10 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 alias ctagsr="ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.html.haml.yml'"
 alias st="open -a SourceTree ."
-alias tmux="tmux -u"
+alias tmux="tmux -u -2"
+
+alias ta="tmux attach -t "
+alias tk="tmux kill-session -t "
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=/usr/local/Cellar:$HOME/.rvm/bin:$PATH
