@@ -44,7 +44,7 @@ alias tmux="tmux -u -2"
 alias ta="tmux attach -t "
 alias tk="tmux kill-session -t "
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
 export PATH=/usr/local/Cellar:$HOME/.rvm/bin:$PATH
 export EDITOR="vim"
 export PAGER="less -R"
