@@ -46,9 +46,9 @@ alias ta="tmux attach -t "
 alias tk="tmux kill-session -t "
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
-export PATH=/usr/local/Cellar:$HOME/.rvm/bin:$PATH
+export PATH=/usr/local/Cellar:$HOME/.rbenv/bin:$PATH
 export EDITOR="vim"
 export PAGER="less -R"
 export DEFAULT_USER=$USERNAME
 
-[[ -s "/Users/"$USERNAME"/.rvm/scripts/rvm" ]] && source "/Users/"$USERNAME"/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+eval "$(rbenv init -)"
