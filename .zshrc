@@ -41,6 +41,7 @@ source $ZSH/oh-my-zsh.sh
 alias ctagsr="ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.html.haml.yml' &> /dev/null"
 alias st="open -a SourceTree ."
 alias tmux="tmux -u -2"
+alias l="ls -al"
 
 alias ta="tmux attach -t "
 alias tk="tmux kill-session -t "
