@@ -8,7 +8,8 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 
 # Example aliases
- alias zshconfig="vim ~/.zshrc"
+alias zshconfig="vim ~/.zshrc"
+alias vimconfig="vim ~/.vimrc.after"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
