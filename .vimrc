@@ -64,9 +64,13 @@ if has("gui_running")
   set columns=240
   colorscheme molokai
 else
-  colorscheme solarized
+  if $TMUX == ''
+    colorscheme molokai
+  else
+    colorscheme solarized
+  endif
 endif
-set background=dark
+set background=light
 
 "" Font
 set guifont=Inconsolata:h14
