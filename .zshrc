@@ -53,4 +53,6 @@ export EDITOR="vim"
 export PAGER="less -R"
 export DEFAULT_USER=$USERNAME
 
+unsetopt correct_all
+
 eval "$(rbenv init -)"
