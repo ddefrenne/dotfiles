@@ -38,7 +38,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-alias ctagsr="ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.html.haml.yml'"
+alias ctagsr="ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.html.haml.yml' %> /dev/null"
 alias st="open -a SourceTree ."
 alias tmux="tmux -u -2"
 
