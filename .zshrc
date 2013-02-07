@@ -45,6 +45,8 @@ alias tmux="tmux -u -2"
 alias ta="tmux attach -t "
 alias tk="tmux kill-session -t "
 
+alias rake="bundle exec rake"
+
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
 export PATH=/usr/local/Cellar:$HOME/.rbenv/bin:$PATH
 export EDITOR="vim"
