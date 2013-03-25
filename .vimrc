@@ -66,5 +66,5 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 map <Leader>pb :CtrlPBuffer<CR>
 
-set guifont=Inconsolata:h14
+set guifont=Inconsolata_for_Powerline:h14
 color molokai
