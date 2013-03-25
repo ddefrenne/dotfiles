@@ -24,6 +24,9 @@ set rnu " relative numbering while the current line shows the absolute linenumbe
 set scrolloff=3 "show 3 lines before and after the cursor
 set cursorline "highlight current line
 
+set laststatus=2
+set statusline=%f\ %m\ %l/%L\ col\:%c
+
 " Searching
 set hlsearch "highlight matches
 set incsearch "incremental searching
