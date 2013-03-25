@@ -46,7 +46,9 @@ alias l="ls -al"
 alias ta="tmux attach -t "
 alias tk="tmux kill-session -t "
 
-alias rake="bundle exec rake"
+alias be="bundle exec"
+alias rc="rails console"
+alias rs="rails server"
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
 export PATH=/usr/local/Cellar:$HOME/.rbenv/bin:$PATH
