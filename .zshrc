@@ -50,8 +50,9 @@ alias be="bundle exec"
 alias rc="rails console"
 alias rs="rails server"
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
-export PATH=/usr/local/Cellar:$HOME/.rbenv/bin:$PATH
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
+export PATH=/usr/local/Cellar:/usr/local/bin:$HOME/.rbenv/bin:$PATH
+#export PATH=/usr/local/bin:$PATH
 export EDITOR="vim"
 export PAGER="less -R"
 export DEFAULT_USER=$USERNAME
