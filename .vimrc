@@ -38,7 +38,7 @@ autocmd BufWritePre * :%s/\s\+$//e "autoremove trailing whitespace
 "autocmd VimEnter * silent! :!ruby ~/.vim/tagfile.rb $(pwd) &> /dev/null
 
 map ,p obinding.pry<ESC>:w<CR>
-map ,P obinding.pry<ESC>:w<CR>
+map ,P Obinding.pry<ESC>:w<CR>
 
 map <Leader>r :source ~/.vimrc<CR>
 map <Leader>hs :nohlsearch<CR>
