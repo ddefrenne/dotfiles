@@ -26,7 +26,7 @@ set scrolloff=3 "show 3 lines before and after the cursor
 set cursorline "highlight current line
 
 set laststatus=2
-set statusline=%f\ %m\ %l/%L\ col\:%c
+set statusline=%f\ %m\ %l/%L\ col\:%c\ \[buffer:\ %n\]\[%p\%%]
 
 " Searching
 set hlsearch "highlight matches
