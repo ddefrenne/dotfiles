@@ -8,8 +8,6 @@ filetype plugin indent on
 set nocompatible "do not use vi-compatibility
 set showcmd " show partial commands
 set showmode "show the mode you're in
-set ruler
-set laststatus=2
 set encoding=utf-8
 
 set visualbell "no beeping
@@ -34,21 +32,20 @@ set ignorecase "searches are case insensitive...
 set smartcase " ... unless they contain at least one capital letter
 
 autocmd BufWritePre * :%s/\s\+$//e "autoremove trailing whitespace
-autocmd VimEnter * silent! :!ruby ~/.vim/tagfile.rb $(pwd) &> /dev/null
+"autocmd VimEnter * silent! :!ruby ~/.vim/tagfile.rb $(pwd) &> /dev/null
 
 map ,p obinding.pry<ESC>:w<CR>
 map ,P obinding.pry<ESC>:w<CR>
 
 map <Leader>r :source ~/.vimrc<CR>
 map <Leader>hs :nohlsearch<CR>
-"map <Leader>hs hlsearch! hlsearch?<CR>
 
 " some edit file commands
 map <Leader>ew :e <C-R>=expand("%:p:h") . "/"<CR>
 map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
-"
+
 " open help in a vertical split
 map <Leader>vh :vert help<space>
 
