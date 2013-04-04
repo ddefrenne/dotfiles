@@ -1,19 +1,6 @@
-function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-
-source ~/dotfiles/.exportsrc
-
-BLUE="\[\033[0;34m\]"
-RED="\[\033[0;31m\]"
-LIGHT_BLUE="\[\033[1;34m\]"
-LIGHT_RED="\[\033[1;31m\]"
-RESET="\[\033[0m\]"
-
-export PS1="[$BLUE\t] \W: $RED\$(parse_git_branch) $RESET"
-
 alias vimconfig="vim ~/.vimrc"
 alias bashconfig="vim ~/.bash_profile"
+alias zshconfig="vim ~/.zshrc"
 
 alias be="bundle exec"
 alias rc="bundle exec rails console"
@@ -25,5 +12,3 @@ alias gfp="git fetch && git pull --rebase origin "
 
 alias ctagsr="ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.html.haml.yml' &> /dev/null"
 alias st="open -a SourceTree ."
-
-eval "$(rbenv init -)"
