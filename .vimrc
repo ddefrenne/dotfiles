@@ -35,7 +35,6 @@ set ignorecase "searches are case insensitive...
 set smartcase " ... unless they contain at least one capital letter
 
 autocmd BufWritePre * :%s/\s\+$//e "autoremove trailing whitespace
-"autocmd VimEnter * silent! :!ruby ~/.vim/tagfile.rb $(pwd) &> /dev/null
 
 map ,p obinding.pry<ESC>:w<CR>
 map ,P Obinding.pry<ESC>:w<CR>
