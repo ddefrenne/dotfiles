@@ -36,6 +36,8 @@ set smartcase " ... unless they contain at least one capital letter
 
 autocmd BufWritePre * :%s/\s\+$//e "autoremove trailing whitespace
 
+let mapleader=","
+
 map ,p obinding.pry<ESC>:w<CR>
 map ,P Obinding.pry<ESC>:w<CR>
 
