@@ -27,3 +27,5 @@ vcs_info_wrapper() {
 # '' around the prompt delays the evaluation, making sure vcs_info
 # knows about the branch being used in the current dir
 export PROMPT='%{$fg[blue]%}[%~]$(vcs_info_wrapper)%{$reset_color%}: '
+
+eval "$(rbenv init -)"
