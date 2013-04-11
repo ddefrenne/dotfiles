@@ -5,11 +5,6 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-
 set backupdir=$HOME/.vim/.backups
 set directory=$HOME/.vim/.backups
 
@@ -62,6 +57,11 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 
 " NERDTree
 map <Leader>n :NERDTreeToggle<CR>
