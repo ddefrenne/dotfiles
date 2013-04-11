@@ -63,6 +63,14 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" Ctrl + l to write ' => '
+imap <c-l> <space>=><space>
+
+nnoremap <CR> :nohlsearch<CR>
+
+map <Leader>pn :ptnext<CR>
+map <Leader>pv :ptprevious<CR>
+
 " NERDTree
 map <Leader>n :NERDTreeToggle<CR>
 
