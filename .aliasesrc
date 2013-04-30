@@ -6,6 +6,7 @@ alias be="bundle exec"
 alias rc="bundle exec rails console"
 alias rs="bundle exec rails server"
 
+alias gg="git grep -e"
 alias gco="git checkout"
 alias gst="git status"
 alias gfp="git fetch && git pull --rebase origin "
