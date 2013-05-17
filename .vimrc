@@ -83,5 +83,7 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 map <Leader>pb :CtrlPBuffer<CR>
 
+" Automatically wrap commit msgs to 72 cols
+autocmd Filetype gitcommit setlocal textwidth=72
 set guifont=Inconsolata_for_Powerline:h14
 color molokai
