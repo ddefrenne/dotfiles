@@ -13,7 +13,7 @@ alias gst="git status"
 alias gfp="git fetch && git pull --rebase origin "
 alias glo="git log --oneline --decorate"
 
-alias ctagsr="ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.html.haml.yml' &> /dev/null"
+alias ctagsr="ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.html.haml.yml' -f .tags &> /dev/null"
 alias st="open -a SourceTree ."
 
 alias curl="noglob curl"
