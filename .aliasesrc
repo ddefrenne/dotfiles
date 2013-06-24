@@ -1,6 +1,7 @@
 alias vimconfig="vim ~/.vimrc"
 alias bashconfig="vim ~/.bash_profile"
 alias zshconfig="vim ~/.zshrc"
+alias tmuxconfig="vim ~/.tmux.conf"
 
 alias be="bundle exec"
 alias rc="bundle exec rails console"
