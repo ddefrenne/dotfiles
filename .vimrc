@@ -20,11 +20,13 @@ set nowrap "don't display lines continues on the next line
 set tabstop=2 shiftwidth=2
 set expandtab "use spaces, not tabs
 set backspace=indent,eol,start " backspace through everything in insert mode
-set rnu " relative numbering while the current line shows the absolute linenumber
+"set nu
+"set rnu " relative numbering while the current line shows the absolute linenumber
 
 set scrolloff=3 "show 3 lines before and after the cursor
-set cursorline "highlight current line
-execute "set colorcolumn=" . join(range(81,335), ',')
+"set cursorline "highlight current line
+"highlight colorcolumn ctermbg=9
+"execute "set colorcolumn=" . join(range(81,335), ',')
 
 set laststatus=2
 set statusline=%f\ %m\ %l/%L\ col\:%c\ \[buffer:\ %n\]\[%l\/%p\%%]
