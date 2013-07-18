@@ -29,7 +29,7 @@ set scrolloff=3 "show 3 lines before and after the cursor
 "execute "set colorcolumn=" . join(range(81,335), ',')
 
 set laststatus=2
-set statusline=%f\ %m\ %l/%L\ col\:%c\ \[buffer:\ %n\]\[%l\/%p\%%]
+set statusline=%f\ %m\ L:%l/%L\ col\:%c\ \[buffer:\ %n\]\[%l\/%p\%%]
 
 " Searching
 set hlsearch "highlight matches
