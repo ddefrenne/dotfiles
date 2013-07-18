@@ -90,4 +90,5 @@ map <Leader>pb :CtrlPBuffer<CR>
 autocmd Filetype gitcommit setlocal textwidth=72
 set guifont=Inconsolata_for_Powerline:h14
 set background=dark
-color solarized
+color molokai
+"color solarized
