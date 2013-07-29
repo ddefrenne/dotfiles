@@ -20,7 +20,7 @@ set nowrap "don't display lines continues on the next line
 set tabstop=2 shiftwidth=2
 set expandtab "use spaces, not tabs
 set backspace=indent,eol,start " backspace through everything in insert mode
-"set nu
+set nu
 "set rnu " relative numbering while the current line shows the absolute linenumber
 
 set scrolloff=3 "show 3 lines before and after the cursor
