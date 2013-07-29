@@ -29,7 +29,7 @@ set scrolloff=3 "show 3 lines before and after the cursor
 "execute "set colorcolumn=" . join(range(81,335), ',')
 
 set laststatus=2
-set statusline=%f\ %m\ L:%l/%L\ col\:%c\ \[buffer:\ %n\]\[%l\/%p\%%]
+"set statusline=%f\ %m\ L:%l/%L\ col\:%c\ \[buffer:\ %n\]\[%l\/%p\%%]
 
 " Searching
 set hlsearch "highlight matches
@@ -85,6 +85,12 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 map <Leader>pb :CtrlPBuffer<CR>
+
+" vim-airline
+let g:airline_powerline_fonts = 1
+let g:airline_enable_syntastic = 0
+let g:airline_theme = 'light'
+let g:airline_exclude_preview = 1
 
 " Automatically wrap commit msgs to 72 cols
 autocmd Filetype gitcommit setlocal textwidth=72
