@@ -86,6 +86,9 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 map <Leader>pb :CtrlPBuffer<CR>
 
+" https://github.com/ivalkeen/vim-ctrlp-tjump
+nnoremap <c-]> :CtrlPtjump<cr>
+
 " vim-airline
 let g:airline_powerline_fonts = 1
 let g:airline_enable_syntastic = 0
