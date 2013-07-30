@@ -1,0 +1,47 @@
+# vim: filetype=sh
+project=$1
+project_dir=$2
+
+tmux has-session -t $project
+if [ $? != 0 ]
+then
+  tmux new-session -s $project -n editor -d
+
+  tmux send-keys -t $project "cd $project_dir" C-m
+  tmux send-keys -t $project "vim ." C-m
+  tmux split-window -v -p 25 -t $project
+  tmux send-keys -t $project:1.2 "cd $project_dir" C-m
+  tmux send-keys -t $project:1.2 "clear" C-m
+  tmux send-keys -t $project:1.2 "gst" C-m
+
+  tmux new-window -n console -t $project
+  tmux send-keys -t $project:2 "cd $project_dir" C-m
+  tmux send-keys -t $project:2 "clear" C-m
+  tmux send-keys -t $project:2 "brails c" C-m
+
+  tmux new-window -n server -t $project
+  tmux send-keys -t $project:3 "cd $project_dir" C-m
+  tmux send-keys -t $project:3 "clear" C-m
+  tmux send-keys -t $project:3 "brails s -p 3000" C-m
+  tmux split-window -v -t $project:3
+  tmux select-layout -t $project:3 even-horizontal
+  tmux send-keys -t $project:3.2 "cd $project_dir" C-m
+  tmux send-keys -t $project:3.2 "clear" C-m
+  tmux send-keys -t $project:3.2 "tail -f log/development.log" C-m
+
+  tmux new-window -n git -t $project
+  tmux send-keys -t $project:4 "cd $project_dir" C-m
+  tmux send-keys -t $project:4 "tig" C-m
+
+  tmux new-window -n tests -t $project
+  tmux send-keys -t $project:5 "cd $project_dir" C-m
+  tmux send-keys -t $project:5 "clear" C-m
+  tmux split-window -v -t $project:5
+  tmux select-layout -t $project:5 even-horizontal
+  tmux send-keys -t $project:5.2 "cd $project_dir" C-m
+  tmux send-keys -t $project:5.2 "clear" C-m
+  tmux send-keys -t $project:5.2 "tail -f log/test.log" C-m
+
+  tmux select-window -t $project:1
+fi
+tmux attach -t $project
