@@ -1,3 +1,9 @@
+let g:pathogen_disabled = []
+
+if $TERM == "screen-256color"
+  call add(g:pathogen_disabled, 'vim-airline')
+endif
+
 execute pathogen#infect()
 " Plugins can be extracted to a subdirectory under ~/.vim/bundle
 " and it will be added to the runtimepath.
@@ -29,7 +35,15 @@ set scrolloff=3 "show 3 lines before and after the cursor
 "execute "set colorcolumn=" . join(range(81,335), ',')
 
 set laststatus=2
-"set statusline=%f\ %m\ L:%l/%L\ col\:%c\ \[buffer:\ %n\]\[%l\/%p\%%]
+if $TERM == "screen-256color"
+  set statusline=%f\ %m\ L:%l/%L\ col\:%c\ \[buffer:\ %n\]\[%l\/%p\%%]
+elseif
+  " vim-airline
+  let g:airline_powerline_fonts = 1
+  let g:airline_enable_syntastic = 0
+  let g:airline_theme = 'light'
+  let g:airline_exclude_preview = 1
+endif
 
 " Searching
 set hlsearch "highlight matches
