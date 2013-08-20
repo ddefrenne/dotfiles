@@ -96,7 +96,7 @@ map <Leader>n :NERDTreeToggle<CR>
 
 " Ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)\tags$'
 
 map <Leader>pb :CtrlPBuffer<CR>
 
