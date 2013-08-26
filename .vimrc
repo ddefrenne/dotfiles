@@ -60,10 +60,10 @@ autocmd BufWritePre * :%s/\s\+$//e "autoremove trailing whitespace
 
 let mapleader=","
 
-noremap ,p obinding.pry<ESC>:w<CR>
-noremap ,P Obinding.pry<ESC>:w<CR>
-noremap ,S osave_and_open_page<ESC>:w<CR>
-noremap ,S Osave_and_open_page<ESC>:w<CR>
+noremap <Leader>p obinding.pry<ESC>:w<CR>
+noremap <Leader>P Obinding.pry<ESC>:w<CR>
+noremap <Leader>s osave_and_open_page<ESC>:w<CR>
+noremap <Leader>S Osave_and_open_page<ESC>:w<CR>
 
 noremap <Leader>r :source ~/.vimrc<CR>
 noremap <Leader>hs :nohlsearch<CR>
@@ -82,16 +82,10 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-set splitbelow
-set splitright
-
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-
-noremap - ddp
-noremap _ ddkP
 
 " Ctrl + l to write ' => '
 inoremap <c-l> <space>=><space>
@@ -103,6 +97,9 @@ noremap <Leader>pv :ptprevious<CR>
 
 " NERDTree
 noremap <Leader>n :NERDTreeToggle<CR>
+
+set splitbelow
+set splitright
 
 " Ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
