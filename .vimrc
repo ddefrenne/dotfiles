@@ -114,12 +114,6 @@ noremap <Leader>pb :CtrlPBuffer<CR>
 " https://github.com/ivalkeen/vim-ctrlp-tjump
 nnoremap <c-]> :CtrlPtjump<cr>
 
-" vim-airline
-let g:airline_powerline_fonts = 1
-let g:airline_enable_syntastic = 0
-let g:airline_theme = 'light'
-let g:airline_exclude_preview = 1
-
 " Automatically wrap commit msgs to 72 cols
 autocmd Filetype gitcommit setlocal textwidth=72
 set background=dark
