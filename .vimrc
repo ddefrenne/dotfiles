@@ -1,3 +1,7 @@
+" nmap: only map in normal mode
+" vmap: only map in visual mode
+" imap: only map in insert mode
+
 let g:pathogen_disabled = []
 
 if $TERM == "screen-256color"
@@ -55,25 +59,27 @@ autocmd BufWritePre * :%s/\s\+$//e "autoremove trailing whitespace
 
 let mapleader=","
 
-map ,p obinding.pry<ESC>:w<CR>
-map ,P Obinding.pry<ESC>:w<CR>
+noremap ,p obinding.pry<ESC>:w<CR>
+noremap ,P Obinding.pry<ESC>:w<CR>
+noremap ,S osave_and_open_page<ESC>:w<CR>
+noremap ,S Osave_and_open_page<ESC>:w<CR>
 
-map <Leader>r :source ~/.vimrc<CR>
-map <Leader>hs :nohlsearch<CR>
+noremap <Leader>r :source ~/.vimrc<CR>
+noremap <Leader>hs :nohlsearch<CR>
 
 " some edit file commands
-map <Leader>ew :e <C-R>=expand("%:p:h") . "/"<CR>
-map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
-map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
-map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
+noremap <Leader>ew :e <C-R>=expand("%:p:h") . "/"<CR>
+noremap <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
+noremap <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
+noremap <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " open help in a vertical split
-map <Leader>vh :vert help<space>
+noremap <Leader>vh :vert help<space>
 
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
 
 set splitbelow
 set splitright
@@ -83,23 +89,26 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+noremap - ddp
+noremap _ ddkP
+
 " Ctrl + l to write ' => '
-imap <c-l> <space>=><space>
+inoremap <c-l> <space>=><space>
 
 nnoremap <CR> :nohlsearch<CR>
 
-map <Leader>pn :ptnext<CR>
-map <Leader>pv :ptprevious<CR>
+noremap <Leader>pn :ptnext<CR>
+noremap <Leader>pv :ptprevious<CR>
 
 " NERDTree
-map <Leader>n :NERDTreeToggle<CR>
+noremap <Leader>n :NERDTreeToggle<CR>
 
 " Ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)\tags$'
 let g:ctrlp_max_files = 2000
 
-map <Leader>pb :CtrlPBuffer<CR>
+noremap <Leader>pb :CtrlPBuffer<CR>
 
 " https://github.com/ivalkeen/vim-ctrlp-tjump
 nnoremap <c-]> :CtrlPtjump<cr>
