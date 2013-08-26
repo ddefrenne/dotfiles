@@ -18,6 +18,7 @@ filetype plugin indent on
 set backupdir=$HOME/.vim/.backups
 set directory=$HOME/.vim/.backups
 
+set history=5000
 set nocompatible "do not use vi-compatibility
 set showcmd " show partial commands
 set showmode "show the mode you're in
