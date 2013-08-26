@@ -67,7 +67,7 @@ noremap <Leader>P Obinding.pry<ESC>:w<CR>
 noremap <Leader>s osave_and_open_page<ESC>:w<CR>
 noremap <Leader>S Osave_and_open_page<ESC>:w<CR>
 
-noremap <Leader>r :source ~/.vimrc<CR>
+noremap <Leader>r :source $MYVIMRC<CR>
 noremap <Leader>hs :nohlsearch<CR>
 
 " some edit file commands
