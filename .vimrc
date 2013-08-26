@@ -120,6 +120,9 @@ autocmd Filetype gitcommit setlocal textwidth=72
 " Save when losing focus
 au FocusLost * :silent! wall
 
+" Resize splits when the window is resized
+au VimResized * :wincmd =
+
 set background=dark
 color molokai
 "color solarized
