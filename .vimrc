@@ -60,6 +60,8 @@ autocmd BufWritePre * :%s/\s\+$//e "autoremove trailing whitespace
 
 let mapleader=","
 
+nnoremap <leader>vvc :vsplit $MYVIMRC<cr>
+
 noremap <Leader>p obinding.pry<ESC>:w<CR>
 noremap <Leader>P Obinding.pry<ESC>:w<CR>
 noremap <Leader>s osave_and_open_page<ESC>:w<CR>
