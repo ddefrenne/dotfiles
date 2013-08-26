@@ -126,3 +126,6 @@ au VimResized * :wincmd =
 set background=dark
 color molokai
 "color solarized
+
+highlight Normal ctermbg=NONE
+highlight NonText ctermbg=NONE
