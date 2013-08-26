@@ -37,7 +37,7 @@ set scrolloff=3 "show 3 lines before and after the cursor
 set laststatus=2
 if $TERM == "screen-256color"
   set statusline=%f\ %m\ L:%l/%L\ col\:%c\ \[buffer:\ %n\]\[%l\/%p\%%]
-elseif
+else
   " vim-airline
   let g:airline_powerline_fonts = 1
   let g:airline_enable_syntastic = 0
