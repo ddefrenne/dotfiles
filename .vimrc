@@ -116,6 +116,10 @@ nnoremap <c-]> :CtrlPtjump<cr>
 
 " Automatically wrap commit msgs to 72 cols
 autocmd Filetype gitcommit setlocal textwidth=72
+
+" Save when losing focus
+au FocusLost * :silent! wall
+
 set background=dark
 color molokai
 "color solarized
