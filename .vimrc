@@ -56,7 +56,10 @@ set incsearch "incremental searching
 set ignorecase "searches are case insensitive...
 set smartcase " ... unless they contain at least one capital letter
 
-autocmd BufWritePre * :%s/\s\+$//e "autoremove trailing whitespace
+augroup writinggroup
+  autocmd!
+  autocmd BufWritePre * :%s/\s\+$//e "autoremove trailing whitespace
+augroup END
 
 let mapleader=","
 
@@ -117,8 +120,11 @@ noremap <Leader>pb :CtrlPBuffer<CR>
 " https://github.com/ivalkeen/vim-ctrlp-tjump
 nnoremap <c-]> :CtrlPtjump<cr>
 
-" Automatically wrap commit msgs to 72 cols
-autocmd Filetype gitcommit setlocal textwidth=72
+augroup filetype_group
+  autocmd!
+  " Automatically wrap commit msgs to 72 cols
+  autocmd Filetype gitcommit setlocal textwidth=72
+augroup END
 
 " Save when losing focus
 au FocusLost * :silent! wall
