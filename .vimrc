@@ -15,6 +15,7 @@ set nobackup
 "set backupdir=$HOME/.vim/.backups
 "set directory=$HOME/.vim/.backups
 set autoread
+set clipboard=unnamed
 
 set history=5000
 set nocompatible "do not use vi-compatibility
