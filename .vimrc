@@ -14,6 +14,7 @@ filetype plugin indent on
 set nobackup
 "set backupdir=$HOME/.vim/.backups
 "set directory=$HOME/.vim/.backups
+set autoread
 
 set history=5000
 set nocompatible "do not use vi-compatibility
