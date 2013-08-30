@@ -11,8 +11,9 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-set backupdir=$HOME/.vim/.backups
-set directory=$HOME/.vim/.backups
+set nobackup
+"set backupdir=$HOME/.vim/.backups
+"set directory=$HOME/.vim/.backups
 
 set history=5000
 set nocompatible "do not use vi-compatibility
