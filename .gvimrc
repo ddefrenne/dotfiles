@@ -1,3 +1,6 @@
-set guioptions-=T " Turn of the toolbar
+set guifont=Source\ Code\ Pro\ for\ Powerline:h13
 
-set visualbell t_vb=
+let g:airline_powerline_fonts = 1
+let g:airline_enable_syntastic = 0
+let g:airline_theme = 'light'
+let g:airline_exclude_preview = 1

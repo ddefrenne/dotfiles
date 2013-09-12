@@ -4,6 +4,10 @@
 
 let g:pathogen_disabled = []
 
+if $TERM
+  call add(g:pathogen_disabled, 'vim-airline')
+endif
+
 execute pathogen#infect()
 " Plugins can be extracted to a subdirectory under ~/.vim/bundle
 " and it will be added to the runtimepath.
