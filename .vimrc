@@ -133,9 +133,6 @@ au FocusLost * :silent! wall
 " Resize splits when the window is resized
 au VimResized * :wincmd =
 
-set background=dark
-color molokai
-"color solarized
 
-highlight Normal ctermbg=NONE
-highlight NonText ctermbg=NONE
+color hemisu
+set background=light
