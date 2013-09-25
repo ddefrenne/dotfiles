@@ -133,6 +133,7 @@ au FocusLost * :silent! wall
 " Resize splits when the window is resized
 au VimResized * :wincmd =
 
+set tags=./tags,tags
 
 color hemisu
 set background=light
