@@ -95,7 +95,7 @@ nnoremap <CR> :nohlsearch<CR>
 noremap <Leader>pn :ptnext<CR>
 noremap <Leader>pv :ptprevious<CR>
 
-noremap <Leader>a :Ag<space>
+noremap <Leader>a :Ag!<space>
 
 " NERDTree
 noremap <Leader>n :NERDTreeToggle<CR>
