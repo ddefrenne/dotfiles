@@ -3,7 +3,21 @@
 " imap: only map in insert mode
 let g:pathogen_disabled = []
 
-if !has("gui_running")
+if has("gui_running")
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
+
+  let g:airline_powerline_fonts = 1
+  let g:airline_enable_syntastic = 0
+  let g:airline_theme = 'light'
+  let g:airline_exclude_preview = 1
+
+  set guioptions-=m "no menu
+  set guioptions-=T "no toolbar
+  set guioptions-=r "no scrollbar
+  set guioptions-=R
+  set guioptions-=l
+  set guioptions-=L
+else
   call add(g:pathogen_disabled, 'vim-airline')
 endif
 
