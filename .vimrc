@@ -43,6 +43,7 @@ set scrolloff=3 "show 3 lines before and after the cursor
 "set cursorline "highlight current line
 "highlight colorcolumn ctermbg=9
 "execute "set colorcolumn=" . join(range(81,335), ',')
+set colorcolumn=80
 
 set laststatus=2
 set statusline=%f\ %m\%=L:\ %l/%L\ col\:\ %c\ \[buffer:\ %n\]\[%p\%%]
