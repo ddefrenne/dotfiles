@@ -46,6 +46,7 @@ set colorcolumn=80
 
 set laststatus=2
 set statusline=%f\ %m\%=L:\ %l/%L\ col\:\ %c\ \[buffer:\ %n\]\[%p\%%]
+set title " show the current file in the terminal's window title
 
 " Searching
 set hlsearch "highlight matches
