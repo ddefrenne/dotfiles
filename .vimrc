@@ -90,6 +90,15 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+function! Changebackground()
+  if &background == 'light'
+    set background=dark
+  else
+    set background=light
+  endif
+endfunction
+nnoremap <leader>sl :call Changebackground()<CR>
+
 " Ctrl + l to write ' => '
 inoremap <c-l> <space>=><space>
 
