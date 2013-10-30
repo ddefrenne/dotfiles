@@ -64,8 +64,6 @@ nnoremap <leader>vvc :vsplit $MYVIMRC<cr>
 
 noremap <Leader>p obinding.pry<ESC>:w<CR>
 noremap <Leader>P Obinding.pry<ESC>:w<CR>
-noremap <Leader>s osave_and_open_page<ESC>:w<CR>
-noremap <Leader>S Osave_and_open_page<ESC>:w<CR>
 
 noremap <Leader>r :source $MYVIMRC<CR>
 noremap <Leader>hs :nohlsearch<CR>
