@@ -1,10 +1,9 @@
 " nmap: only map in normal mode
 " vmap: only map in visual mode
 " imap: only map in insert mode
-
 let g:pathogen_disabled = []
 
-if $TERM
+if !has("gui_running")
   call add(g:pathogen_disabled, 'vim-airline')
 endif
 
