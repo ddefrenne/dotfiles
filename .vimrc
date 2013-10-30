@@ -15,6 +15,8 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+runtime macros/matchit.vim
+
 set nobackup
 "set backupdir=$HOME/.vim/.backups
 "set directory=$HOME/.vim/.backups
