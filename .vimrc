@@ -39,6 +39,8 @@ set nu
 set rnu " relative numbering while the current line shows the absolute linenumber
 
 set scrolloff=3 "show 3 lines before and after the cursor
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
 "set cursorline "highlight current line
 "highlight colorcolumn ctermbg=9
 "execute "set colorcolumn=" . join(range(81,335), ',')
