@@ -106,8 +106,10 @@ noremap <Right> <NOP>
 
 function! Changebackground()
   if &background == 'light'
+    color Tomorrow-Night-Bright
     set background=dark
   else
+    color hemisu
     set background=light
   endif
 endfunction
