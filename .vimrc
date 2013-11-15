@@ -1,7 +1,44 @@
 " nmap: only map in normal mode
 " vmap: only map in visual mode
 " imap: only map in insert mode
-let g:pathogen_disabled = []
+
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install (update) bundles
+" :BundleSearch(!) foo - search (or refresh cache first) for foo
+" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle commands are not allowed.
+filetype off " required for Vundle
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
+
+Bundle 'Lokaltog/vim-easymotion'
+
+Bundle 'regedarek/ZoomWin'
+
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/rbenv-ctags'
+Bundle 'tpope/vim-bundler'
+"Bundle 'nelstrom/vim-textobj-rubyblock'
+
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'ivalkeen/vim-ctrlp-tjump'
+Bundle 'rking/ag.vim'
+
+"let g:pathogen_disabled = []
 
 if has("gui_running")
   set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
@@ -18,10 +55,10 @@ if has("gui_running")
   set guioptions-=l
   set guioptions-=L
 else
-  call add(g:pathogen_disabled, 'vim-airline')
+  "call add(g:pathogen_disabled, 'vim-airline')
 endif
 
-execute pathogen#infect()
+"execute pathogen#infect()
 " Plugins can be extracted to a subdirectory under ~/.vim/bundle
 " and it will be added to the runtimepath.
 
