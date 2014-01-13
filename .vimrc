@@ -20,24 +20,33 @@ call vundle#rc()
 " required!
 Bundle 'gmarik/vundle'
 
+Bundle 'tpope/vim-unimpaired'
+
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 
 Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'tommcdo/vim-exchange'
 
 Bundle 'regedarek/ZoomWin'
 
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails.git'
-Bundle 'tpope/rbenv-ctags'
-Bundle 'tpope/vim-bundler'
-"Bundle 'nelstrom/vim-textobj-rubyblock'
 
-Bundle 'scrooloose/nerdtree'
+" rbenv ctags <version>
+Bundle 'tpope/rbenv-ctags'
+
+Bundle 'tpope/vim-bundler'
+Bundle 'godlygeek/tabular'
+
+"Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'ivalkeen/vim-ctrlp-tjump'
 Bundle 'rking/ag.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-surround'
 
+"Bundle 'nelstrom/vim-textobj-rubyblock'
 "let g:pathogen_disabled = []
 
 if has("gui_running")
@@ -54,22 +63,22 @@ if has("gui_running")
   set guioptions-=R
   set guioptions-=l
   set guioptions-=L
-else
-  "call add(g:pathogen_disabled, 'vim-airline')
-endif
 
-"execute pathogen#infect()
-" Plugins can be extracted to a subdirectory under ~/.vim/bundle
-" and it will be added to the runtimepath.
+  set background=dark
+  color molokai
+else
+  set background=dark
+  color molokai
+endif
 
 syntax on
 filetype plugin indent on
 
 runtime macros/matchit.vim
 
-set nobackup
-"set backupdir=$HOME/.vim/.backups
-"set directory=$HOME/.vim/.backups
+"set nobackup
+set backupdir=$HOME/.vim/.backups
+set directory=$HOME/.vim/.backups
 set autoread
 set clipboard+=unnamed
 
@@ -95,7 +104,7 @@ nnoremap <C-y> 3<C-y>
 "set cursorline "highlight current line
 "highlight colorcolumn ctermbg=9
 "execute "set colorcolumn=" . join(range(81,335), ',')
-set colorcolumn=80
+"set colorcolumn=80
 
 set laststatus=2
 set statusline=%f\ %m\%=L:\ %l/%L\ col\:\ %c\ \[buffer:\ %n\]\[%p\%%]
@@ -143,7 +152,7 @@ noremap <Right> <NOP>
 
 function! Changebackground()
   if &background == 'light'
-    color Tomorrow-Night-Bright
+    color molokai
     set background=dark
   else
     color hemisu
@@ -186,6 +195,11 @@ noremap <Leader>pb :CtrlPBuffer<CR>
 " https://github.com/ivalkeen/vim-ctrlp-tjump
 nnoremap <c-]> :CtrlPtjump<cr>
 
+" Tagbar
+let g:tagbar_autoclose = 0
+nnoremap <silent> <F6> :TagbarOpen<CR>
+nnoremap <Leader>t :TagbarToggle<CR>
+
 augroup filetype_group
   autocmd!
   " Automatically wrap commit msgs to 72 cols
@@ -198,7 +212,9 @@ au FocusLost * :silent! wall
 " Resize splits when the window is resized
 au VimResized * :wincmd =
 
-set tags=./tags,tags
+"
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
 
-color hemisu
-set background=light
+set re=1 " use the old regexp engine from Vim
+set tags=./tags,tags
