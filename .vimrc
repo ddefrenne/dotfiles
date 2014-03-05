@@ -45,6 +45,7 @@ Bundle 'ivalkeen/vim-ctrlp-tjump'
 Bundle 'rking/ag.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-surround'
+Bundle 'artnez/vim-wipeout'
 
 "Bundle 'nelstrom/vim-textobj-rubyblock'
 "let g:pathogen_disabled = []
@@ -184,6 +185,9 @@ silent! if emoji#available()
   let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
   let g:gitgutter_sign_modified_removed = emoji#for('collision')
 endif
+
+" artnez/vim-wipeout
+nnoremap <Leader>w :Wipeout<CR>
 
 " Ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
