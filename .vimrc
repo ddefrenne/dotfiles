@@ -198,6 +198,7 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)\tags$'
 let g:ctrlp_max_files = 2000
 
 noremap <Leader>pb :CtrlPBuffer<CR>
+noremap <Leader>q :bd<space>
 
 " https://github.com/ivalkeen/vim-ctrlp-tjump
 nnoremap <c-]> :CtrlPtjump<cr>
