@@ -41,6 +41,7 @@ Bundle 'godlygeek/tabular'
 
 "Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
+Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'ivalkeen/vim-ctrlp-tjump'
 Bundle 'rking/ag.vim'
 Bundle 'majutsushi/tagbar'
@@ -219,6 +220,13 @@ au VimResized * :wincmd =
 "
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
+
+" https://github.com/kien/rainbow_parentheses.vim
+" Rainbow Parenthesis (Match parentheses, etc. by color):
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 set re=1 " use the old regexp engine from Vim
 set tags=./tags,tags
