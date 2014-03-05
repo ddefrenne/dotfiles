@@ -51,6 +51,8 @@ Bundle 'artnez/vim-wipeout'
 "Bundle 'nelstrom/vim-textobj-rubyblock'
 "let g:pathogen_disabled = []
 
+set shell=$SHELL
+
 if has("gui_running")
   set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
 
