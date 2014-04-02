@@ -48,6 +48,7 @@ Bundle 'rking/ag.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-surround'
 Bundle 'artnez/vim-wipeout'
+Bundle 'terryma/vim-multiple-cursors'
 
 "Bundle 'nelstrom/vim-textobj-rubyblock'
 "let g:pathogen_disabled = []
