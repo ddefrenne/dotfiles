@@ -1,0 +1,10 @@
+export EDITOR="vim"
+
+function dash() {
+  open "dash://$1"
+}
+
+# brew info coreutils
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+
