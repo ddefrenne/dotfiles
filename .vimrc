@@ -37,6 +37,7 @@ Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/rbenv-ctags'
 
 Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-dispatch'
 Bundle 'godlygeek/tabular'
 
 "Bundle 'scrooloose/nerdtree'
