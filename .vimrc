@@ -50,6 +50,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'artnez/vim-wipeout'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'dsawardekar/ember.vim'
+Bundle 'kchmck/vim-coffee-script'
 
 "Bundle 'nelstrom/vim-textobj-rubyblock'
 "let g:pathogen_disabled = []
