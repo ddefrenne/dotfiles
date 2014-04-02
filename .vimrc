@@ -73,10 +73,10 @@ if has("gui_running")
   set guioptions-=L
 
   set background=dark
-  color molokai
+  color solarized
 else
   set background=dark
-  color molokai
+  color solarized
 endif
 
 syntax on
@@ -160,7 +160,7 @@ noremap <Right> <NOP>
 
 function! Changebackground()
   if &background == 'light'
-    color molokai
+    color solarized
     set background=dark
   else
     color hemisu
