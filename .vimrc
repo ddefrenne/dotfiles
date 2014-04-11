@@ -40,7 +40,7 @@ Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-dispatch'
 Bundle 'godlygeek/tabular'
 
-"Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'ivalkeen/vim-ctrlp-tjump'
