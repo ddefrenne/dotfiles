@@ -236,5 +236,9 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+" Begin a new line and exit insert mode
+nnoremap <Leader>o o<ESC>
+nnoremap <Leader>O O<ESC>
+
 set re=1 " use the old regexp engine from Vim
 set tags=./tags,tags
