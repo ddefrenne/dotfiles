@@ -182,6 +182,8 @@ noremap <Leader>a :Ag!<space>
 
 " NERDTree
 noremap <Leader>n :NERDTreeToggle<CR>
+" Do not open NERDTree at startup
+let g:NERDTreeHijackNetrw=0
 
 set splitbelow
 set splitright
