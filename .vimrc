@@ -37,6 +37,7 @@ Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/rbenv-ctags'
 
 Bundle 'tpope/vim-bundler'
+Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-dispatch'
 Bundle 'godlygeek/tabular'
 
@@ -56,7 +57,8 @@ Bundle 'lilydjwg/colorizer'
 "Bundle 'nelstrom/vim-textobj-rubyblock'
 "let g:pathogen_disabled = []
 
-set shell=$SHELL
+" Needs to be Bash to make Dispatch/RSpec.vim/something else happy
+set shell=/bin/bash\ -l
 
 if has("gui_running")
   set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
@@ -220,6 +222,11 @@ augroup filetype_group
   " Automatically wrap commit msgs to 72 cols
   autocmd Filetype gitcommit setlocal textwidth=72
 augroup END
+
+" RSpec.vim
+let g:rspec_command = "Dispatch rspec {spec}"
+map <Leader>rc :call RunCurrentSpecFile()<CR>
+map <Leader>rn :call RunNearestSpec()<CR>
 
 " Save when losing focus
 au FocusLost * :silent! wall
