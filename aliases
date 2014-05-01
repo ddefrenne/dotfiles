@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 alias reload="source ~/.zshrc"
 alias zconf="vim ~/.zshrc"
 alias vconf="vim ~/.vimrc"
