@@ -1,0 +1,2 @@
+# Give the selected line a white bg and a magenta fg
+color cursor white magenta
