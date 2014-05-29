@@ -4,17 +4,16 @@ alias zconf="vim ~/.zshrc"
 alias vconf="vim ~/.vimrc"
 alias gvconf="vim ~/.gvimrc"
 
-alias code="cd ~/code"
-
-alias ctagsr="ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.html.haml.yml' -f .tags -f tags &> /dev/null"
-
-alias v="vim "
-alias gv="mvim "
-
+alias v="vim"
+alias gv="mvim"
 alias b="bundle"
 
-alias bu="cd $HOME && brew up --rebase && cd -"
-
+#-----
+# Git
+#-----
+alias g="git"
+alias ga="git add"
+alias gco="git checkout"
 alias gst="git status"
 alias glo="git log --oneline --decorate"
 alias gfp="git fetch && git pull --rebase origin "
@@ -26,3 +25,13 @@ alias srake="bin/rake"
 alias srails="bin/rails"
 alias scucumber="bin/cucumber"
 
+# Suffix aliases, 'open with...'
+alias -s rb=vim
+alias -s log="tail -f"
+
+#-----------
+# Shortcuts
+#-----------
+alias code="cd ~/code"
+alias ctagsr="ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.html.haml.yml' -f .tags -f tags &> /dev/null"
+alias bu="cd $HOME && brew up --rebase && cd -"

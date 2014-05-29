@@ -89,8 +89,7 @@ PS1="%{$fg[green]%}%n %{$fg[yellow]%}%~ ${gitprompt}%{$fg[red]%}${rubyprompt}%{$
 #----------------
 # Aliases
 #----------------
-alias zconf="vim ~/.zshrc"
-alias vconf="vim ~/.vimrc"
+source $HOME/dotfiles/aliases
 
 #----------------
 # Functions
