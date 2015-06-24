@@ -98,6 +98,26 @@ function dash() {
   open "dash://$1"
 }
 
+# Format JSON
+function pjson {
+    if [ $# -gt 0 ];
+        then
+        for arg in $@
+        do
+            if [ -f $arg ];
+                then
+                less $arg | python -m json.tool
+            else
+                echo "$arg" | python -m json.tool
+            fi
+        done
+    fi
+}
+
+function jc() {
+  curl -o output.json "$*" | pjson output.json
+}
+
 #----------------
 # Needs to load at the end
 #----------------
