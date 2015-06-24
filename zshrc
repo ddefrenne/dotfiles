@@ -15,7 +15,7 @@ unsetopt IGNORE_CLOSE_BRACES
 autoload -U compinit && compinit
 
 # completion of line switches for aliases
-setopt completealiases
+#setopt completealiases
 
 autoload -U promptinit && promptinit
 autoload -U colors && colors
