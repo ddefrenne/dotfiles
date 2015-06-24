@@ -7,23 +7,24 @@ alias gvconf="vim ~/.gvimrc"
 alias v="vim"
 alias gv="mvim"
 alias b="bundle"
+alias be="bundle exec"
+
+alias ls="ls --color"
+alias time="noglob time -p"
 
 #-----
 # Git
 #-----
 alias g="git"
 alias ga="git add"
+alias gb="git branch"
 alias gco="git checkout"
+alias gd="git diff"
+alias gdc="git diff --cached"
 alias gst="git status"
 alias glo="git log --oneline --decorate"
-alias gfp="git fetch && git pull --rebase origin "
+alias gp="git pull --rebase origin "
 alias prunegit='git remote prune origin && git gc --prune=now && git gc --aggressive && git tag -l | xargs git tag -d && git fetch --tags'
-
-# Spring
-alias srspec="bin/rspec"
-alias srake="bin/rake"
-alias srails="bin/rails"
-alias scucumber="bin/cucumber"
 
 # Suffix aliases, 'open with...'
 alias -s rb=vim
