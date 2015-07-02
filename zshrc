@@ -48,8 +48,6 @@ set -o emacs
 #----------------
 # Prompt
 #----------------
-source /usr/local/Cellar/rbenv/0.4.0/completions/rbenv.zsh
-
 # show current rbenv version if different from rbenv global
 rbenv_version_status() {
   local ver=$(rbenv version-name)
@@ -125,5 +123,5 @@ function jc() {
 # Needs to load at the end
 #----------------
 source $HOME/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-eval "$(rbenv init -)"
 eval "$(direnv hook zsh)"
+if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
