@@ -122,6 +122,6 @@ function jc() {
 #----------------
 # Needs to load at the end
 #----------------
-source $HOME/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(direnv hook zsh)"
+source $HOME/Downloads/scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
