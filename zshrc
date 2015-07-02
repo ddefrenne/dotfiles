@@ -118,6 +118,9 @@ function jc() {
   curl -o output.json "$*" | pjson output.json
 }
 
+# https://github.com/joelthelion/autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
 #----------------
 # Needs to load at the end
 #----------------
