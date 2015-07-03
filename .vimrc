@@ -46,6 +46,7 @@ Plugin 'artnez/vim-wipeout'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tomtom/tcomment_vim'
+Plugin 'valloric/youcompleteme'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
