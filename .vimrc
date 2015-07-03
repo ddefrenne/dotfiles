@@ -203,6 +203,9 @@ noremap <Leader>pv :ptprevious<CR>
 
 noremap <Leader>a :Ag!<space>
 
+" *.rabl should be considered Ruby
+au BufNewFile,BufRead *.rabl set filetype=ruby
+
 " NERDTree
 noremap <Leader>n :NERDTreeToggle<CR>
 " Do not open NERDTree at startup
