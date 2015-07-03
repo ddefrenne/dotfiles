@@ -112,8 +112,8 @@ function pjson {
     fi
 }
 
-function jc() {
-  curl -o output.json "$*" | pjson output.json
+function jcurl() {
+  curl -o output.json $* | pjson output.json
 }
 
 # https://github.com/joelthelion/autojump
