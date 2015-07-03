@@ -148,10 +148,13 @@ set ignorecase "searches are case insensitive...
 set smartcase " ... unless they contain at least one capital letter
 
 " Autoremove trailing whitespace
-augroup writinggroup
-  autocmd!
-  autocmd BufWritePre * :%s/\s\+$//e
-augroup END
+fun! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
+autocmd FileType ruby,c,cpp autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " Automatically wrap commit msgs to 72 cols
 augroup filetype_group
