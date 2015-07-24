@@ -1,6 +1,7 @@
 #----------------
 # ZSH config
 #----------------
+export TERM=xterm-256color
 # Prevent putting duplicate lines in the history
 setopt HIST_IGNORE_DUPS
 
