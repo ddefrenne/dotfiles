@@ -83,7 +83,7 @@ git_custom_status() {
 local gitprompt='$(git_custom_status)'
 local rubyprompt='$(rbenv_version_status)'
 
-PS1="%{$fg[green]%}%n %{$fg[yellow]%}%~ ${gitprompt}%{$fg[red]%}${rubyprompt}%{$reset_color%} $ "
+PS1="%c %{$fg[green]%}%{$fg[yellow]%}${gitprompt}%{$fg[red]%}${rubyprompt}%{$reset_color%} "
 
 #----------------
 # Aliases
