@@ -20,14 +20,15 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-rails.git'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-dispatch'
+" Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-haml'
 " rbenv ctags <version>
 Plugin 'tpope/rbenv-ctags'
@@ -41,12 +42,21 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'ivalkeen/vim-ctrlp-tjump'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'rking/ag.vim'
-Plugin 'majutsushi/tagbar'
 Plugin 'artnez/vim-wipeout'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tomtom/tcomment_vim'
-Plugin 'valloric/youcompleteme'
+" Plugin 'rust-lang/rust.vim'
+" Plugin 'racer-rust/vim-racer'
+Plugin 'christoomey/vim-tmux-navigator'
+
+" Plugin 'altercation/vim-colors-solarized'
+" Plugin 'chriskempson/base16-vim'
+Plugin 'chriskempson/tomorrow-theme'
+Plugin 'editorconfig/editorconfig-vim'
+" Plugin 'kabbamine/yowish.vim'
+" Plugin 'romainl/Apprentice'
+" Plugin 'ajh17/spacegray.vim'
+Plugin 'elixir-lang/vim-elixir'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -78,12 +88,8 @@ runtime macros/matchit.vim
 set shell=/bin/bash\ -l
 
 if has("gui_running")
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
-
-  " let g:airline_powerline_fonts = 1
-  " let g:airline_enable_syntastic = 0
-  " let g:airline_theme = 'light'
-  " let g:airline_exclude_preview = 1
+  set guifont=Hack:h11
+  set anti
 
   set guioptions-=m "no menu
   set guioptions-=T "no toolbar
@@ -92,16 +98,16 @@ if has("gui_running")
   set guioptions-=l
   set guioptions-=L
 
-  set background=dark
-  color molokai
+  set background=light
+  coloscheme spacegray
 else
-  set background=dark
-  color molokai
+  set background=light
+  colorscheme Tomorrow-Night-Bright
 endif
 
 syntax on
 
-"set nobackup
+set nobackup
 set autoread
 set autoindent
 set backspace=indent,eol,start " backspace through everything in insert mode
@@ -127,10 +133,11 @@ set visualbell "no beeping
 
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
-"set cursorline "highlight current line
+set cursorline "highlight current line
 "highlight colorcolumn ctermbg=9
-"execute "set colorcolumn=" . join(range(81,335), ',')
-"set colorcolumn=80
+"execute 'set colorcolumn=' . join(range(81,335), ',')
+set colorcolumn=80
+set cursorcolumn
 
 set laststatus=2
 set statusline=%f\ %m\%=L:\ %l/%L\ col\:\ %c\ \[buffer:\ %n\]\[%p\%%]
@@ -142,6 +149,8 @@ set splitright
 
 " Searching
 set grepprg=ag " Use Silver Searcher instead of grep
+" configure ag.vim to always start searching from your project root instead of the cwd
+let g:ag_working_path_mode="r"
 set hlsearch "highlight matches
 set incsearch "incremental searching
 set ignorecase "searches are case insensitive...
@@ -168,6 +177,8 @@ au FocusGained,BufEnter * :silent! !
 au VimResized * :wincmd =
 
 let mapleader=","
+
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 
 noremap <Leader>p obinding.pry<ESC>:w<CR>
 noremap <Leader>P Obinding.pry<ESC>:w<CR>
@@ -242,15 +253,14 @@ nnoremap <Leader>t :TagbarToggle<CR>
 
 " RSpec.vim
 let g:rspec_command = "Dispatch rspec {spec}"
-map <Leader>rc :call RunCurrentSpecFile()<CR>
-map <Leader>rn :call RunNearestSpec()<CR>
+nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
+nnoremap <Leader>rn :call RunNearestSpec()<CR>
+nnoremap <Leader>l :call RunLastSpec()<CR>
+
+nnoremap <F9> :Dispatch<CR>
 
 " Townk/vim-autoclose
 let g:AutoClosePairs = "[] () {} <> \""
-
-"
-highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
 
 " https://github.com/kien/rainbow_parentheses.vim
 " Rainbow Parenthesis (Match parentheses, etc. by color):
@@ -277,6 +287,15 @@ function! Changebackground()
   endif
 endfunction
 nnoremap <leader>sl :call Changebackground()<CR>
+
+function! ChangeBackgroundTint()
+  if &background == 'light'
+    set background=dark
+  else
+    set background=light
+  endif
+endfunction
+nnoremap <leader>cb :call ChangeBackgroundTint()<CR>
 
 function! To19Hash()
   '<,'>s/:\(\w\+\)\s=>/\1:
