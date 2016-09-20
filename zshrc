@@ -27,6 +27,7 @@ if [[ -x "`whence -p dircolors`" ]]; then
   alias ls='ls -F --color=auto'
 else
   alias ls='ls -F'
+  alias ls='ls --color'
 fi
 
 # superglobs
@@ -42,9 +43,13 @@ setopt promptsubst
 #----------------
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/sbin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 export EDITOR="vim"
+export BUNDLER_EDITOR="nvim"
 set -o emacs
+
+export RUST_SRC_PATH=/Users/dimitri/sources/rust/src
 
 #----------------
 # Prompt
@@ -83,7 +88,7 @@ git_custom_status() {
 local gitprompt='$(git_custom_status)'
 local rubyprompt='$(rbenv_version_status)'
 
-PS1="%c %{$fg[green]%}%{$fg[yellow]%}${gitprompt}%{$fg[red]%}${rubyprompt}%{$reset_color%} "
+PS1="%c %{$fg[color164]%}%{$fg[yellow]%}${gitprompt}%{$fg[red]%}${rubyprompt} $%{$reset_color%} "
 
 #----------------
 # Aliases
@@ -123,6 +128,12 @@ function jcurl() {
 #----------------
 # Needs to load at the end
 #----------------
-eval "$(direnv hook zsh)"
 source $HOME/Downloads/scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
+# source /usr/local/opt/chruby/share/chruby/chruby.sh
+# RUBIES+=(~/.rbenv/versions/*)
+# source /usr/local/opt/chruby/share/chruby/auto.sh
+
+eval "$(direnv hook zsh)"
+
+test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh

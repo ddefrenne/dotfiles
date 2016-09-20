@@ -4,7 +4,6 @@ set nocompatible
 " vmap: only map in visual mode
 " imap: only map in insert mode
 
-"
 " Brief help
 " :PluginList          - list configured bundles
 " :PluginInstall(!)    - install (update) bundles
@@ -22,7 +21,7 @@ call vundle#begin()
 " required!
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'thoughtbot/vim-rspec'
+" Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-rails'
@@ -37,26 +36,25 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'regedarek/ZoomWin'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'godlygeek/tabular'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ivalkeen/vim-ctrlp-tjump'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'rking/ag.vim'
-Plugin 'artnez/vim-wipeout'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tomtom/tcomment_vim'
-" Plugin 'rust-lang/rust.vim'
-" Plugin 'racer-rust/vim-racer'
-Plugin 'christoomey/vim-tmux-navigator'
 
-" Plugin 'altercation/vim-colors-solarized'
-" Plugin 'chriskempson/base16-vim'
+Plugin 'lifepillar/vim-solarized8'
 Plugin 'chriskempson/tomorrow-theme'
+Plugin 'joshdick/onedark.vim'
+Plugin 'ajh17/Spacegray.vim'
 Plugin 'editorconfig/editorconfig-vim'
-" Plugin 'kabbamine/yowish.vim'
-" Plugin 'romainl/Apprentice'
-" Plugin 'ajh17/spacegray.vim'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'slashmili/alchemist.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'lambdatoast/elm.vim'
+Plugin 'jacoborus/tender.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -101,12 +99,13 @@ if has("gui_running")
   set background=light
   coloscheme spacegray
 else
-  set background=light
+  set background=dark
   colorscheme Tomorrow-Night-Bright
 endif
 
 syntax on
 
+set termguicolors
 set nobackup
 set autoread
 set autoindent
@@ -121,8 +120,10 @@ set gdefault " assume the /g flag on :s substitutions to replace all matches in 
 set history=5000
 set nobackup
 set noswapfile
-set nowrap "don't display lines continues on the next line
-           "when they don't fit the screen
+" set nowrap "don't display lines continues on the next line
+"            "when they don't fit the screen
+set wrap
+set breakindent
 set nu
 set rnu " relative numbering while the current line shows the absolute linenumber
 set scrolloff=3 "show 3 lines before and after the cursor
@@ -230,9 +231,6 @@ silent! if emoji#available()
   let g:gitgutter_sign_modified_removed = emoji#for('collision')
 endif
 
-" artnez/vim-wipeout
-nnoremap <Leader>w :Wipeout<CR>
-
 " Ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)\tags\tmp$'
@@ -279,10 +277,10 @@ set tags=.git/tags
 
 function! Changebackground()
   if &background == 'light'
-    color solarized
+    colorscheme solarized8_dark_high
     set background=dark
   else
-    color hemisu
+    colorscheme solarized8_light_high
     set background=light
   endif
 endfunction
@@ -295,20 +293,15 @@ function! ChangeBackgroundTint()
     set background=light
   endif
 endfunction
-nnoremap <leader>cb :call ChangeBackgroundTint()<CR>
+nnoremap <Leader>cb :call ChangeBackgroundTint()<CR>
 
 function! To19Hash()
   '<,'>s/:\(\w\+\)\s=>/\1:
 endfunction
 vmap <leader>h :<C-U>call To19Hash()<cr>
 
-function! s:Marko()
-  noautocmd silent execute "!open -a \"Marko\" " . expand("%:p")
-  if v:shell_error
-    echohl Error
-    echon "Problem opening the file."
-    echohl Normal
-  endif
-endfunction
+let g:airline_powerline_fonts = 1
+let g:airline_theme = "papercolor"
+" leuke: dracula, xtermlight, solarized
 
-command! -bar -nargs=0 Marko call s:Marko()
+set shell=zsh

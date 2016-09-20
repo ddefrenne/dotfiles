@@ -2,15 +2,18 @@
 alias reload="source ~/.zshrc"
 alias zconf="vim ~/.zshrc"
 alias vconf="vim ~/.vimrc"
+alias tconf="vim ~/.tmux.conf"
 alias gvconf="vim ~/.gvimrc"
+alias nvconf="nvim ~/.nvimrc"
 
-alias v="vim"
-alias gv="mvim"
+alias v="nvim"
+alias gv="nvim"
 alias b="bundle"
 alias be="bundle exec"
 
-alias ls="ls --color"
 alias time="noglob time -p"
+
+alias ls="ls --color=auto"
 
 #-----
 # Git
@@ -33,6 +36,33 @@ alias -s log="tail -f"
 #-----------
 # Shortcuts
 #-----------
-alias code="cd ~/code"
 alias ctagsr="ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.html.haml.yml' -f .tags -f tags &> /dev/null"
+alias gtagsr="gtags --gtagslabel=ctags"
 alias bu="cd $HOME && brew up --rebase && cd -"
+alias rss="sudo nginx -s stop && sudo nginx && bundle exec rails server"
+alias ltc="grep --color=auto "" $1 | less -FR" 
+alias rgsr="gem search -r \^$1\$"
+
+#-----------
+# Tmux
+#-----------
+alias ts="/Users/dimitri/Dropbox/tmux/project sock /Users/dimitri/code/openminds/sock"
+alias tf="/Users/dimitri/Dropbox/tmux/project fritn /Users/dimitri/code/openminds/fritn 3006"
+alias tgtt="/Users/dimitri/Dropbox/tmux/project_hanami gtt /Users/dimitri/code/openminds/gitlab-to-trello"
+alias ti="/Users/dimitri/Dropbox/tmux/project id /Users/dimitri/code/openminds/invoicedonkey 3002"
+alias to="/Users/dimitri/Dropbox/tmux/project od /Users/dimitri/code/openminds/on-duty 4000"
+alias th="/Users/dimitri/Dropbox/tmux/project hartekamp /Users/dimitri/code/hartekamp/databank_hartekamp 3005"
+alias tr="/Users/dimitri/Dropbox/tmux/project_phoenix rumbl /Users/dimitri/code/elixir/phoenix/rumbl"
+
+showcolors () {
+  for i in {0..255} ; do
+      printf "\x1b[38;5;${i}mcolour${i}\n"
+  done
+}
+
+tp () {
+  /Users/dimitri/Dropbox/tmux/project $1 /Users/dimitri/code/openminds/$1;
+}
+
+alias nginxalog="less +F /usr/local/var/log/nginx/access.log"
+alias nginxelog="less +F /usr/local/var/log/nginx/error.log"
