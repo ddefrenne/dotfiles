@@ -1,10 +1,10 @@
 #!/usr/bin/zsh
 alias reload="source ~/.zshrc"
-alias zconf="vim ~/.zshrc"
-alias vconf="vim ~/.vimrc"
-alias tconf="vim ~/.tmux.conf"
-alias gvconf="vim ~/.gvimrc"
-alias nvconf="nvim ~/.nvimrc"
+alias zconf="v ~/.zshrc"
+alias vconf="v ~/.vimrc"
+alias tconf="v ~/.tmux.conf"
+alias gvconf="v ~/.gvimrc"
+alias nvconf="v ~/.nvimrc"
 
 alias v="nvim"
 alias gv="nvim"
@@ -13,7 +13,7 @@ alias be="bundle exec"
 
 alias time="noglob time -p"
 
-alias ls="ls --color=auto"
+# alias ls="ls --color=auto"
 
 #-----
 # Git
@@ -28,9 +28,11 @@ alias gst="git status"
 alias glo="git log --oneline --decorate"
 alias gp="git pull --rebase origin "
 alias prunegit='git remote prune origin && git gc --prune=now && git gc --aggressive && git tag -l | xargs git tag -d && git fetch --tags'
+alias push_it='git push origin'
+alias push_it_real_good='git push --force-with-lease origin'
 
 # Suffix aliases, 'open with...'
-alias -s rb=vim
+alias -s rb=v
 alias -s log="tail -f"
 
 #-----------
@@ -42,6 +44,7 @@ alias bu="cd $HOME && brew up --rebase && cd -"
 alias rss="sudo nginx -s stop && sudo nginx && bundle exec rails server"
 alias ltc="grep --color=auto "" $1 | less -FR" 
 alias rgsr="gem search -r \^$1\$"
+alias restoredb="gunzip < $1 | mysql -p $2"
 
 #-----------
 # Tmux
@@ -51,6 +54,7 @@ alias tf="/Users/dimitri/Dropbox/tmux/project fritn /Users/dimitri/code/openmind
 alias tgtt="/Users/dimitri/Dropbox/tmux/project_hanami gtt /Users/dimitri/code/openminds/gitlab-to-trello"
 alias ti="/Users/dimitri/Dropbox/tmux/project id /Users/dimitri/code/openminds/invoicedonkey 3002"
 alias to="/Users/dimitri/Dropbox/tmux/project od /Users/dimitri/code/openminds/on-duty 4000"
+alias tb="/Users/dimitri/Dropbox/tmux/project bestel /Users/dimitri/code/openminds/bestel 3003"
 alias th="/Users/dimitri/Dropbox/tmux/project hartekamp /Users/dimitri/code/hartekamp/databank_hartekamp 3005"
 alias tr="/Users/dimitri/Dropbox/tmux/project_phoenix rumbl /Users/dimitri/code/elixir/phoenix/rumbl"
 

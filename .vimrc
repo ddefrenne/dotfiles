@@ -22,8 +22,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-rake'
+" Plugin 'tpope/vim-unimpaired'
+" Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-fugitive'
 " Plugin 'tpope/vim-dispatch'
@@ -35,26 +35,28 @@ Plugin 'tpope/rbenv-ctags'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'regedarek/ZoomWin'
-Plugin 'vim-ruby/vim-ruby'
+"Plugin 'vim-ruby/vim-ruby'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ivalkeen/vim-ctrlp-tjump'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'rking/ag.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tomtom/tcomment_vim'
-
-Plugin 'lifepillar/vim-solarized8'
-Plugin 'chriskempson/tomorrow-theme'
-Plugin 'joshdick/onedark.vim'
-Plugin 'ajh17/Spacegray.vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'slashmili/alchemist.vim'
+" Plugin 'lifepillar/vim-solarized8'
+" Plugin 'chriskempson/tomorrow-theme'
+" Plugin 'joshdick/onedark.vim'
+" Plugin 'ajh17/Spacegray.vim'
+" Plugin 'colepeters/spacemacs-theme.vim'
+" Plugin 'editorconfig/editorconfig-vim'
+" Plugin 'elixir-lang/vim-elixir'
+" Plugin 'slashmili/alchemist.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-Plugin 'lambdatoast/elm.vim'
+" Plugin 'lambdatoast/elm.vim'
 Plugin 'jacoborus/tender.vim'
+" Plugin 'maralla/completor.vim'
+" Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -84,24 +86,6 @@ runtime macros/matchit.vim
 " =====================
 " Needs to be Bash to make Dispatch/RSpec.vim/something else happy
 set shell=/bin/bash\ -l
-
-if has("gui_running")
-  set guifont=Hack:h11
-  set anti
-
-  set guioptions-=m "no menu
-  set guioptions-=T "no toolbar
-  set guioptions-=r "no scrollbar
-  set guioptions-=R
-  set guioptions-=l
-  set guioptions-=L
-
-  set background=light
-  coloscheme spacegray
-else
-  set background=dark
-  colorscheme Tomorrow-Night-Bright
-endif
 
 syntax on
 
@@ -219,17 +203,17 @@ noremap <Leader>a :Ag!<space>
 au BufNewFile,BufRead *.rabl set filetype=ruby
 
 " NERDTree
-noremap <Leader>n :NERDTreeToggle<CR>
+" noremap <Leader>n :NERDTreeToggle<CR>
 " Do not open NERDTree at startup
-let g:NERDTreeHijackNetrw=0
+" let g:NERDTreeHijackNetrw=0
 
 " vim-emoji
-silent! if emoji#available()
-  let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
-  let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
-  let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
-  let g:gitgutter_sign_modified_removed = emoji#for('collision')
-endif
+"silent! if emoji#available()
+"  let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
+"  let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
+"  let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
+"  let g:gitgutter_sign_modified_removed = emoji#for('collision')
+"endif
 
 " Ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
@@ -245,20 +229,20 @@ nnoremap <c-]> :CtrlPtjump<cr>
 let g:ctrlp_tjump_only_silent = 1
 
 " Tagbar
-let g:tagbar_autoclose = 0
-nnoremap <silent> <F6> :TagbarOpen<CR>
-nnoremap <Leader>t :TagbarToggle<CR>
+"let g:tagbar_autoclose = 0
+"nnoremap <silent> <F6> :TagbarOpen<CR>
+"nnoremap <Leader>t :TagbarToggle<CR>
 
 " RSpec.vim
-let g:rspec_command = "Dispatch rspec {spec}"
-nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>rn :call RunNearestSpec()<CR>
-nnoremap <Leader>l :call RunLastSpec()<CR>
+"let g:rspec_command = "Dispatch rspec {spec}"
+"nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
+"nnoremap <Leader>rn :call RunNearestSpec()<CR>
+"nnoremap <Leader>l :call RunLastSpec()<CR>
 
 nnoremap <F9> :Dispatch<CR>
 
 " Townk/vim-autoclose
-let g:AutoClosePairs = "[] () {} <> \""
+"let g:AutoClosePairs = "[] () {} <> \""
 
 " https://github.com/kien/rainbow_parentheses.vim
 " Rainbow Parenthesis (Match parentheses, etc. by color):
@@ -300,8 +284,30 @@ function! To19Hash()
 endfunction
 vmap <leader>h :<C-U>call To19Hash()<cr>
 
+"let g:ale_sign_column_always = 1
+"let g:ale_lint_on_save = 1
+
 let g:airline_powerline_fonts = 1
 let g:airline_theme = "papercolor"
 " leuke: dracula, xtermlight, solarized
 
 set shell=zsh
+
+if has("gui_running")
+  set guifont=Hack:h11
+  set anti
+
+  set guioptions-=m "no menu
+  set guioptions-=T "no toolbar
+  set guioptions-=r "no scrollbar
+  set guioptions-=R
+  set guioptions-=l
+  set guioptions-=L
+
+  set background=light
+  coloscheme spacegray
+else
+  set background=dark
+  " colorscheme Tomorrow-Night-Bright
+  colorscheme tender
+endif
