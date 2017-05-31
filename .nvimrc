@@ -3,8 +3,6 @@ set nocompatible
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.nvim/plugged')
 
-" Plug 'neomake/neomake'
-
 " Languages
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
@@ -14,26 +12,30 @@ Plug 'tpope/vim-rake'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-haml'
 Plug 'kchmck/vim-coffee-script'
-Plug 'thoughtbot/vim-rspec'
+" Plug 'thoughtbot/vim-rspec'
 " rbenv ctags <version>
 Plug 'tpope/rbenv-ctags'
 Plug 'pangloss/vim-javascript'
+Plug 'ElmCast/elm-vim'
+" Plug 'rhysd/vim-crystal'
 
 " Colorschemes
-Plug 'NLKNguyen/papercolor-theme'
+" Plug 'NLKNguyen/papercolor-theme'
 " Plug 'jacoborus/tender.vim'
+" Plug 'ajh17/Spacegray.vim'
 " Plug 'joshdick/onedark.vim'
-Plug 'sickill/vim-monokai'
 Plug 'tomasr/molokai'
-" Plug 'mhartington/oceanic-next'
+Plug 'iCyMind/NeoSolarized'
 " Plug 'trusktr/seti.vim'
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
 " Plug 'romainl/Apprentice'
 Plug 'albertorestifo/github.vim'
 Plug 'wimstefan/Lightning'
-Plug 'rakr/vim-one'
+" Plug 'rakr/vim-one'
+" Plug 'w0ng/vim-hybrid'
 " Plug 'danilo-augusto/vim-afterglow'
-" Plug 'lifepillar/vim-solarized8'
+Plug 'lifepillar/vim-solarized8'
+" Plug 'felixhummel/setcolors.vim'
 
 " Stuff
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -49,10 +51,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'rking/ag.vim'
 Plug 'tomtom/tcomment_vim'
 " Plug 'mhinz/vim-signify'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-signify'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -121,7 +122,7 @@ set wildmode=full
 
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
-set cursorline "highlight current line
+" set cursorline "highlight current line
 set cursorcolumn
 
 set laststatus=2
@@ -318,38 +319,23 @@ nmap <leader>h :IExHide<CR>
 let g:tagbar_show_linenumbers = 0
 nmap <F8> :TagbarToggle<CR>
 
-" let g:rustfmt_autosave = 1
-" let g:racer_cmd="/Users/dimitri/rust/racer/target/release/racer"
-" let $RUST_SRC_PATH="/Users/dimitri/sources/rust/src"
-
-" Neomake
-" let g:neomake_verbose = 3
-" let g:neomake_logfile = "/Users/dimitri/Desktop/neovimlog"
-"
-" function! OnNeomakeFinished()
-"   lopen
-" endfunction
-"
-" augroup my_neomake
-"   au!
-"   autocmd User NeomakeFinished call OnNeomakeFinished()
-" augroup END
-"
-" let g:neomake_ruby_rspec_maker = {
-"   \ 'exe': './bin/rspec',
-"   \ 'args': ['%:p'],
-"   \ 'errorformat': '%f:%l:%c: %m',
-"   \ }
-" let g:neomake_ruby_enabled_makers = ['rspec']
-
 let g:deoplete#enable_at_startup = 1
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-" set termguicolors " needs to be disabled in tmux
+
+" if $TERM !~# '^\%(screen\|tmux\)'
+"   set termguicolors
+" else
+"   set notermguicolors
+" endif
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
+let g:gruvbox_contrast_dark="hard"
 set background=dark
-" let g:gruvbox_contrast_dark="hard"
+" colorscheme Tomorrow-Night-Bright
+" colorscheme molokai
+" triplejelly Benokai CandyPaper badwolf
 " colorscheme gruvbox
-colorscheme Tomorrow-Night-Bright
+" colorscheme spacegray
+colorscheme solarized8_dark_high
