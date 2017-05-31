@@ -1,69 +1,63 @@
 set nocompatible
 
+" https://github.com/junegunn/vim-plug
+call plug#begin('~/.nvim/plugged')
+
+" Languages
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-haml'
+Plug 'kchmck/vim-coffee-script'
+" rbenv ctags <version>
+Plug 'tpope/rbenv-ctags'
+Plug 'pangloss/vim-javascript'
+Plug 'ElmCast/elm-vim'
+" Plug 'rhysd/vim-crystal'
+
+" Colorschemes
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'jacoborus/tender.vim'
+Plug 'ajh17/Spacegray.vim'
+Plug 'joshdick/onedark.vim'
+Plug 'tomasr/molokai'
+Plug 'trusktr/seti.vim'
+Plug 'morhetz/gruvbox'
+Plug 'romainl/Apprentice'
+Plug 'albertorestifo/github.vim'
+Plug 'wimstefan/Lightning'
+" Plug 'rakr/vim-one'
+" Plug 'w0ng/vim-hybrid'
+Plug 'danilo-augusto/vim-afterglow'
+Plug 'lifepillar/vim-solarized8'
+" Plug 'felixhummel/setcolors.vim'
+
+" Stuff
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-fugitive'
+Plug 'powerman/vim-plugin-AnsiEsc'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ivalkeen/vim-ctrlp-tjump'
+Plug 'ryanoasis/vim-devicons'
+" Plug 'kien/rainbow_parentheses.vim'
+Plug 'rking/ag.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'mhinz/vim-signify'
+
+Plug 'editorconfig/editorconfig-vim'
+
+" Add plugins to &runtimepath
+call plug#end()
+
 " nmap: only map in normal mode
 " vmap: only map in visual mode
 " imap: only map in insert mode
-
-" Brief help
-" :PluginList          - list configured bundles
-" :PluginInstall(!)    - install (update) bundles
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Plugin commands are not allowed.
-filetype off " required for Vundle
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle
-" required!
-Plugin 'VundleVim/Vundle.vim'
-
-" Plugin 'thoughtbot/vim-rspec'
-" Plugin 'tpope/vim-unimpaired'
-" Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-fugitive'
-" Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-haml'
-" rbenv ctags <version>
-Plugin 'tpope/rbenv-ctags'
-
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'regedarek/ZoomWin'
-"Plugin 'vim-ruby/vim-ruby'
-Plugin 'kien/ctrlp.vim'
-Plugin 'ivalkeen/vim-ctrlp-tjump'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'rking/ag.vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'tomtom/tcomment_vim'
-" Plugin 'lifepillar/vim-solarized8'
-" Plugin 'chriskempson/tomorrow-theme'
-" Plugin 'joshdick/onedark.vim'
-" Plugin 'ajh17/Spacegray.vim'
-" Plugin 'colepeters/spacemacs-theme.vim'
-" Plugin 'editorconfig/editorconfig-vim'
-" Plugin 'elixir-lang/vim-elixir'
-" Plugin 'slashmili/alchemist.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-" Plugin 'lambdatoast/elm.vim'
-Plugin 'jacoborus/tender.vim'
-" Plugin 'maralla/completor.vim'
-" Plugin 'w0rp/ale'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-
 " ========
 " Ruby
 " ========
@@ -84,44 +78,37 @@ runtime macros/matchit.vim
 " =====================
 " GENERAL CONFIGURATION
 " =====================
-" Needs to be Bash to make Dispatch/RSpec.vim/something else happy
-set shell=/bin/bash\ -l
+set shell=/usr/local/bin/zsh\ -l
 
 syntax on
 
-set termguicolors
 set nobackup
-set autoread
 set autoindent
 set backspace=indent,eol,start " backspace through everything in insert mode
-set backupdir=$HOME/.vim/.backups
 set clipboard+=unnamed
-set directory=$HOME/.vim/.backups
-set encoding=utf-8
-set expandtab "use spaces, not tabs
+set directory=/tmp//,.
+set expandtab " use spaces, not tabs
 set formatoptions-=or " Don't add the comment prefix when I hit enter or o/O on a comment line.
 set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 set history=5000
 set nobackup
+set nowritebackup
 set noswapfile
-" set nowrap "don't display lines continues on the next line
-"            "when they don't fit the screen
-set wrap
-set breakindent
+set nowrap " don't display lines continues on the next line
+           " when they don't fit the screen
 set nu
 set rnu " relative numbering while the current line shows the absolute linenumber
-set scrolloff=3 "show 3 lines before and after the cursor
+set scrolloff=1 "show 3 lines before and after the cursor
 set showcmd " show partial commands
-set showmode "show the mode you're in
+set showmode " show the mode you're in
 set tabstop=2 shiftwidth=2
-set visualbell "no beeping
+set visualbell " no beeping
+set wildmenu
+set wildmode=full
 
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
-set cursorline "highlight current line
-"highlight colorcolumn ctermbg=9
-"execute 'set colorcolumn=' . join(range(81,335), ',')
-set colorcolumn=80
+" set cursorline " highlight current line
 set cursorcolumn
 
 set laststatus=2
@@ -134,12 +121,13 @@ set splitright
 
 " Searching
 set grepprg=ag " Use Silver Searcher instead of grep
-" configure ag.vim to always start searching from your project root instead of the cwd
-let g:ag_working_path_mode="r"
-set hlsearch "highlight matches
-set incsearch "incremental searching
-set ignorecase "searches are case insensitive...
+set hlsearch " highlight matches
+set incsearch " incremental searching
+set ignorecase " searches are case insensitive...
 set smartcase " ... unless they contain at least one capital letter
+
+" Incremental (“live”) :substitute
+" set inccommand=split
 
 " Autoremove trailing whitespace
 fun! <SID>StripTrailingWhitespaces()
@@ -149,6 +137,8 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 autocmd FileType ruby,c,cpp autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 
 " Automatically wrap commit msgs to 72 cols
 augroup filetype_group
@@ -162,8 +152,6 @@ au FocusGained,BufEnter * :silent! !
 au VimResized * :wincmd =
 
 let mapleader=","
-
-autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 
 noremap <Leader>p obinding.pry<ESC>:w<CR>
 noremap <Leader>P Obinding.pry<ESC>:w<CR>
@@ -203,17 +191,17 @@ noremap <Leader>a :Ag!<space>
 au BufNewFile,BufRead *.rabl set filetype=ruby
 
 " NERDTree
-" noremap <Leader>n :NERDTreeToggle<CR>
+" nnoremap <F10> :NERDTreeToggle<CR>
 " Do not open NERDTree at startup
 " let g:NERDTreeHijackNetrw=0
 
 " vim-emoji
-"silent! if emoji#available()
-"  let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
-"  let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
-"  let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
-"  let g:gitgutter_sign_modified_removed = emoji#for('collision')
-"endif
+" silent! if emoji#available()
+"   let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
+"   let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
+"   let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
+"   let g:gitgutter_sign_modified_removed = emoji#for('collision')
+" endif
 
 " Ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
@@ -228,28 +216,15 @@ nnoremap <c-]> :CtrlPtjump<cr>
 " Don't open the tag quickfix-window when there's only one found
 let g:ctrlp_tjump_only_silent = 1
 
-" Tagbar
-"let g:tagbar_autoclose = 0
-"nnoremap <silent> <F6> :TagbarOpen<CR>
-"nnoremap <Leader>t :TagbarToggle<CR>
-
-" RSpec.vim
-"let g:rspec_command = "Dispatch rspec {spec}"
-"nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
-"nnoremap <Leader>rn :call RunNearestSpec()<CR>
-"nnoremap <Leader>l :call RunLastSpec()<CR>
-
-nnoremap <F9> :Dispatch<CR>
-
-" Townk/vim-autoclose
-"let g:AutoClosePairs = "[] () {} <> \""
+"highlight ColorColumn ctermbg=magenta
+"call matchadd('ColorColumn', '\%81v', 100)
 
 " https://github.com/kien/rainbow_parentheses.vim
 " Rainbow Parenthesis (Match parentheses, etc. by color):
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" au VimEnter * RainbowParenthesesToggle
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
 
 " Begin a new line and exit insert mode
 nnoremap <Leader>o o<ESC>
@@ -261,10 +236,10 @@ set tags=.git/tags
 
 function! Changebackground()
   if &background == 'light'
-    colorscheme solarized8_dark_high
+    color solarized
     set background=dark
   else
-    colorscheme solarized8_light_high
+    color hemisu
     set background=light
   endif
 endfunction
@@ -277,37 +252,45 @@ function! ChangeBackgroundTint()
     set background=light
   endif
 endfunction
-nnoremap <Leader>cb :call ChangeBackgroundTint()<CR>
+nnoremap <leader>cb :call ChangeBackgroundTint()<CR>
 
 function! To19Hash()
   '<,'>s/:\(\w\+\)\s=>/\1:
 endfunction
 vmap <leader>h :<C-U>call To19Hash()<cr>
 
-"let g:ale_sign_column_always = 1
-"let g:ale_lint_on_save = 1
+" Markdown
+function! s:Marko()
+  noautocmd silent execute "!open -a \"Marko\" " . expand("%:p")
+  if v:shell_error
+    echohl Error
+    echon "Problem opening the file."
+    echohl Normal
+  endif
+endfunction
 
-let g:airline_powerline_fonts = 1
-let g:airline_theme = "papercolor"
-" leuke: dracula, xtermlight, solarized
+" Zoom
+function! s:zoom()
+  if winnr('$') > 1
+    tab split
+  elseif len(filter(map(range(tabpagenr('$')), 'tabpagebuflist(v:val + 1)'),
+                  \ 'index(v:val, '.bufnr('').') >= 0')) > 1
+    tabprevious
+    +tabclose
+  endif
+endfunction
+nnoremap <silent> <leader>z :call <sid>zoom()<cr>
 
-set shell=zsh
+command! -bar -nargs=0 Marko call s:Marko()
 
-if has("gui_running")
-  set guifont=Hack:h11
-  set anti
+" Alchemist
+nmap <leader>h :IExHide<CR>
 
-  set guioptions-=m "no menu
-  set guioptions-=T "no toolbar
-  set guioptions-=r "no scrollbar
-  set guioptions-=R
-  set guioptions-=l
-  set guioptions-=L
+set termguicolors
 
-  set background=light
-  coloscheme spacegray
-else
-  set background=dark
-  " colorscheme Tomorrow-Night-Bright
-  colorscheme tender
-endif
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+set guifont=Menlo:h13 " Macvim font
+set background=light
+color PaperColor
