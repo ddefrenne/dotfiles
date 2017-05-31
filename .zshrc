@@ -1,24 +1,15 @@
-#----------------
-# ZSH config
-#----------------
-export TERM=xterm-256color
-# Prevent putting duplicate lines in the history
-setopt HIST_IGNORE_DUPS
-
+# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=5000
+SAVEHIST=5000
+setopt HIST_IGNORE_DUPS # Prevent putting duplicate lines in the history
+setopt HIST_IGNORE_ALL_DUPS
 
-unsetopt IGNORE_BRACES
-unsetopt IGNORE_CLOSE_BRACES
+setopt appendhistory autocd extendedglob nomatch notify
+unsetopt beep
+bindkey -e
+# End of lines configured by zsh-newuser-install
 
-# Enable autocompletion
-autoload -U compinit && compinit
-
-# completion of line switches for aliases
-#setopt completealiases
-
-autoload -U promptinit && promptinit
 autoload -U colors && colors
 
 # LS colors
@@ -30,30 +21,21 @@ else
   alias ls='ls --color'
 fi
 
-# superglobs
-setopt extendedglob
-unsetopt caseglob
-
-setopt auto_cd
-
-setopt promptsubst
-
-#----------------
-# General
-#----------------
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/sbin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
-export EDITOR="vim"
 export BUNDLER_EDITOR="nvim"
-set -o emacs
-
-export RUST_SRC_PATH=/Users/dimitri/sources/rust/src
+export EDITOR="nvim"
+export DISABLE_SPRING=true
+# export TERM="screen-256color"
 
 #----------------
 # Prompt
 #----------------
+autoload -U promptinit && promptinit
+setopt promptsubst
+
 # show current rbenv version if different from rbenv global
 rbenv_version_status() {
   local ver=$(rbenv version-name)
@@ -62,7 +44,7 @@ rbenv_version_status() {
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}["
 ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}*%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}✗%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 # show git branch/tag, or name-rev if on detached head
@@ -98,41 +80,21 @@ source $HOME/dotfiles/aliases
 #----------------
 # Functions
 #----------------
-function dash() {
-  open "dash://$1"
-}
-
-# Format JSON
-function pjson {
-    if [ $# -gt 0 ];
-        then
-        for arg in $@
-        do
-            if [ -f $arg ];
-                then
-                less $arg | python -m json.tool
-            else
-                echo "$arg" | python -m json.tool
-            fi
-        done
-    fi
-}
-
-function jcurl() {
-  curl -o output.json $* | pjson output.json
-}
-
 # https://github.com/joelthelion/autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+# The following lines were added by compinstall
+zstyle :compinstall filename '/Users/dimitri/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
 
 #----------------
 # Needs to load at the end
 #----------------
 source $HOME/Downloads/scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
-# source /usr/local/opt/chruby/share/chruby/chruby.sh
-# RUBIES+=(~/.rbenv/versions/*)
-# source /usr/local/opt/chruby/share/chruby/auto.sh
 
 eval "$(direnv hook zsh)"
 
