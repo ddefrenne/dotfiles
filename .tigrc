@@ -1,2 +1,4 @@
 # Give the selected line a white fg and a magenta bg
-color cursor white color164
+color cursor white color161
+color title-focus white color160
+color title-blur white color158
