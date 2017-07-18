@@ -107,6 +107,7 @@ set nowritebackup
 set noswapfile
 set nowrap "don't display lines continues on the next line
            "when they don't fit the screen
+set breakindent
 set nu
 "set rnu " relative numbering while the current line shows the absolute linenumber
 set scrolloff=1 "show 3 lines before and after the cursor
