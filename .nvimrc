@@ -44,7 +44,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'ryanoasis/vim-devicons'
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-signify'
@@ -195,6 +195,25 @@ inoremap <c-l> <space>=><space>
 noremap <Leader>pn :ptnext<CR>
 noremap <Leader>pv :ptprevious<CR>
 
+" --column: Show column number
+" --line-number: Show line number
+" --no-heading: Do not show file headings in results
+" --fixed-strings: Search term as a literal string
+" --ignore-case: Case insensitive search
+" --no-ignore: Do not respect .gitignore, etc...
+" --hidden: Search hidden files and folders
+" --follow: Follow symlinks
+" --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+" --color: Search color options
+" command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
+" let g:ackprg = 'ag --vimgrep --smart-case'
+let g:ackprg = 'rg --vimgrep --no-heading'
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack
+noremap <Leader>a :Ack<space>
 
 " *.rabl should be considered Ruby
 au BufNewFile,BufRead *.rabl set filetype=ruby
