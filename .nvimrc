@@ -43,6 +43,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'Lokaltog/vim-easymotion'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mileszs/ack.vim'
 Plug 'tomtom/tcomment_vim'
@@ -292,6 +294,8 @@ nnoremap <silent> <leader>z :call <sid>zoom()<cr>
 " Alchemist
 nmap <leader>h :IExHide<CR>
 
+" fzf
+noremap <Leader>f :Files<CR>
 
 let g:deoplete#enable_at_startup = 1
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
