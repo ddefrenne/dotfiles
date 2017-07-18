@@ -35,6 +35,7 @@ Plug 'wimstefan/Lightning'
 " Plug 'danilo-augusto/vim-afterglow'
 Plug 'lifepillar/vim-solarized8'
 " Plug 'felixhummel/setcolors.vim'
+Plug 'bluz71/vim-moonfly-colors'
 
 " Stuff
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -330,11 +331,5 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-let g:gruvbox_contrast_dark="hard"
 set background=dark
-" colorscheme Tomorrow-Night-Bright
-" colorscheme molokai
-" triplejelly Benokai CandyPaper badwolf
-" colorscheme gruvbox
-" colorscheme spacegray
-colorscheme solarized8_dark_high
+colorscheme moonfly
