@@ -42,18 +42,12 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'powerman/vim-plugin-AnsiEsc'
-" Plug 'airblade/vim-gitgutter'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'ivalkeen/vim-ctrlp-tjump'
 Plug 'ryanoasis/vim-devicons'
-" Plug 'kien/rainbow_parentheses.vim'
 Plug 'rking/ag.vim'
 Plug 'tomtom/tcomment_vim'
-" Plug 'mhinz/vim-signify'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-signify'
-" Plug 'majutsushi/tagbar'
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -201,7 +195,6 @@ inoremap <c-l> <space>=><space>
 noremap <Leader>pn :ptnext<CR>
 noremap <Leader>pv :ptprevious<CR>
 
-noremap <Leader>a :Ag!<space>
 
 " *.rabl should be considered Ruby
 au BufNewFile,BufRead *.rabl set filetype=ruby
@@ -218,29 +211,6 @@ silent! if emoji#available()
   let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
   let g:gitgutter_sign_modified_removed = emoji#for('collision')
 endif
-
-" Ctrlp
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)\tags\tmp$'
-let g:ctrlp_max_files = 5000
-
-noremap <Leader>pb :CtrlPBuffer<CR>
-noremap <Leader>q :bd<space>
-
-" https://github.com/ivalkeen/vim-ctrlp-tjump
-nnoremap <c-]> :CtrlPtjump<cr>
-" Don't open the tag quickfix-window when there's only one found
-let g:ctrlp_tjump_only_silent = 1
-
-" vim-rspec
-let g:rspec_command = "Dispatch bundle exec rspec {spec}"
-let g:rspec_runner = "os_x_iterm2"
-nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>rn :call RunNearestSpec()<CR>
-nnoremap <Leader>rl :call RunLastSpec()<CR>
-nnoremap <Leader>ra :call RunAllSpecs()<CR>
-
-nnoremap <F9> :Dispatch<CR>
 
 " Townk/vim-autoclose
 let g:AutoClosePairs = "[] () {} <> \""
@@ -288,16 +258,6 @@ function! To19Hash()
 endfunction
 vmap <leader>h :<C-U>call To19Hash()<cr>
 
-" Markdown
-function! s:Marko()
-  noautocmd silent execute "!open -a \"Marko\" " . expand("%:p")
-  if v:shell_error
-    echohl Error
-    echon "Problem opening the file."
-    echohl Normal
-  endif
-endfunction
-
 " Zoom
 function! s:zoom()
   if winnr('$') > 1
@@ -310,14 +270,9 @@ function! s:zoom()
 endfunction
 nnoremap <silent> <leader>z :call <sid>zoom()<cr>
 
-command! -bar -nargs=0 Marko call s:Marko()
-
 " Alchemist
 nmap <leader>h :IExHide<CR>
 
-" Tagbar
-let g:tagbar_show_linenumbers = 0
-nmap <F8> :TagbarToggle<CR>
 
 let g:deoplete#enable_at_startup = 1
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
