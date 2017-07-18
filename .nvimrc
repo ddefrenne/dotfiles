@@ -50,6 +50,8 @@ Plug 'mileszs/ack.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-signify'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -305,6 +307,8 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " else
 "   set notermguicolors
 " endif
+" vim-airline
+let g:airline_theme='papercolor'
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
