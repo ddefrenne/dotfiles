@@ -98,7 +98,6 @@ set backspace=indent,eol,start " backspace through everything in insert mode
 " set backupdir=$HOME/.vim/.backups
 set clipboard+=unnamed
 set directory=/tmp//,.
-" set encoding=utf-8
 set expandtab "use spaces, not tabs
 set formatoptions-=or " Don't add the comment prefix when I hit enter or o/O on a comment line.
 set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
