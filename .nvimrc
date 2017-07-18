@@ -12,7 +12,6 @@ Plug 'tpope/vim-rake'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-haml'
 Plug 'kchmck/vim-coffee-script'
-" Plug 'thoughtbot/vim-rspec'
 " rbenv ctags <version>
 Plug 'tpope/rbenv-ctags'
 Plug 'pangloss/vim-javascript'
