@@ -180,6 +180,29 @@ noremap <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 noremap <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 noremap <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
+" Terminal
+" Map ESC to C-\ C-n (to go to normal mode in terminal)
+tnoremap <Esc> <C-\><C-n>
+
+function VsTerm()
+  execute "vsplit"
+  execute "terminal"
+endfunction
+
+function STerm()
+  execute "split"
+  execute "terminal"
+endfunction
+
+function TabTerm()
+  execute "tabe"
+  execute "terminal"
+endfunction
+
+command! VsTerm call VsTerm()
+command! STerm call STerm()
+command! TabTerm call TabTerm()
+
 " open help in a vertical split
 noremap <Leader>vh :vert help<space>
 
