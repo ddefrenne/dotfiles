@@ -17,6 +17,7 @@ Plug 'tpope/rbenv-ctags'
 Plug 'pangloss/vim-javascript'
 Plug 'ElmCast/elm-vim'
 " Plug 'rhysd/vim-crystal'
+Plug 'fatih/vim-go'
 
 " Colorschemes
 Plug 'NLKNguyen/papercolor-theme'
@@ -34,9 +35,9 @@ Plug 'wimstefan/Lightning'
 Plug 'danilo-augusto/vim-afterglow'
 Plug 'lifepillar/vim-solarized8'
 " Plug 'felixhummel/setcolors.vim'
+Plug 'bluz71/vim-moonfly-colors'
 
 " Stuff
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'powerman/vim-plugin-AnsiEsc'
@@ -75,6 +76,8 @@ augroup END
 " Enable built-in matchit plugin
 runtime macros/matchit.vim
 
+" omnicomplete RoR
+let g:rubycomplete_rails = 1
 " =====================
 " GENERAL CONFIGURATION
 " =====================
@@ -97,7 +100,7 @@ set noswapfile
 set nowrap " don't display lines continues on the next line
            " when they don't fit the screen
 set nu
-set rnu " relative numbering while the current line shows the absolute linenumber
+"set rnu " relative numbering while the current line shows the absolute linenumber
 set scrolloff=1 "show 3 lines before and after the cursor
 set showcmd " show partial commands
 set showmode " show the mode you're in
@@ -109,7 +112,7 @@ set wildmode=full
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 " set cursorline " highlight current line
-set cursorcolumn
+" set cursorcolumn
 
 set laststatus=2
 set statusline=%f\ %m\%=L:\ %l/%L\ col\:\ %c\ \[buffer:\ %n\]\[%p\%%]
@@ -286,11 +289,15 @@ command! -bar -nargs=0 Marko call s:Marko()
 " Alchemist
 nmap <leader>h :IExHide<CR>
 
+" vim-go
+let g:go_fmt_autosave = 1
+
 set termguicolors
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 set guifont=Menlo:h13 " Macvim font
-set background=light
-color PaperColor
+set background=dark
+" color PaperColor
+colorscheme moonfly

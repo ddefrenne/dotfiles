@@ -6,14 +6,17 @@ alias tconf="v ~/.tmux.conf"
 alias gvconf="v ~/.gvimrc"
 alias nvconf="v ~/.nvimrc"
 
-alias v="nvim"
-alias gv="nvim"
+alias v="vim"
+alias gv="vim"
+alias nv="nvim"
 alias b="bundle"
 alias be="bundle exec"
 
 alias time="noglob time -p"
 
 # alias ls="ls --color=auto"
+alias dc="docker-compose "
+alias dcr="docker-compose run "
 
 #-----
 # Git

@@ -15,32 +15,48 @@ Plug 'kchmck/vim-coffee-script'
 " rbenv ctags <version>
 Plug 'tpope/rbenv-ctags'
 Plug 'pangloss/vim-javascript'
-Plug 'ElmCast/elm-vim'
+Plug 'leafgarland/typescript-vim'
+" Plug 'ElmCast/elm-vim'
+" Plug 'fatih/vim-go'
 " Plug 'rhysd/vim-crystal'
 
 " Colorschemes
-" Plug 'NLKNguyen/papercolor-theme'
-" Plug 'jacoborus/tender.vim'
-" Plug 'ajh17/Spacegray.vim'
-" Plug 'joshdick/onedark.vim'
-Plug 'tomasr/molokai'
-Plug 'iCyMind/NeoSolarized'
-" Plug 'trusktr/seti.vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'jacoborus/tender.vim'
+Plug 'ajh17/Spacegray.vim'
+Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
+" Plug 'tomasr/molokai'
+" Plug 'iCyMind/NeoSolarized'
+Plug 'trusktr/seti.vim'
 " Plug 'morhetz/gruvbox'
-" Plug 'romainl/Apprentice'
-Plug 'albertorestifo/github.vim'
+Plug 'romainl/Apprentice'
+" Plug 'albertorestifo/github.vim'
 Plug 'wimstefan/Lightning'
 " Plug 'rakr/vim-one'
-" Plug 'w0ng/vim-hybrid'
-" Plug 'danilo-augusto/vim-afterglow'
-Plug 'lifepillar/vim-solarized8'
+Plug 'w0ng/vim-hybrid'
+Plug 'danilo-augusto/vim-afterglow'
+" Plug 'lifepillar/vim-solarized8'
 " Plug 'felixhummel/setcolors.vim'
 Plug 'bluz71/vim-moonfly-colors'
+Plug 'kristijanhusak/vim-hybrid-material'
+
+" Linters
+" Plug 'maksimr/vim-jsbeautify'
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
 
 " Stuff
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim'
+", { 'do': ':UpdateRemotePlugins' } <-- re-enable later on, after https://github.com/neovim/neovim/pull/5856
+Plug 'vim-syntastic/syntastic'
+
+" Plug 'Shougo/echodoc.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -48,9 +64,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mileszs/ack.vim'
 Plug 'tomtom/tcomment_vim'
-Plug 'christoomey/vim-tmux-navigator'
+" Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-signify'
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'editorconfig/editorconfig-vim'
@@ -70,6 +86,8 @@ augroup myfiletypes
 
   autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
   autocmd FileType ruby,eruby,yaml setlocal path+=lib
+  autocmd FileType typescript setlocal sw=4 sts=4
+  " autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 
   " Run NeoMake on read and write operations
   " autocmd! BufReadPost,BufWritePost * Neomake
@@ -90,7 +108,13 @@ runtime macros/matchit.vim
 " set shell=/bin/bash\ -l
 set shell=/usr/local/bin/zsh\ -l
 
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 syntax on
+" set synmaxcol=200 " Only syntax color the first 200 characters on a line, should help with performance problems
 
 set nobackup
 set autoindent
@@ -112,7 +136,8 @@ set nu
 "set rnu " relative numbering while the current line shows the absolute linenumber
 set scrolloff=1 "show 3 lines before and after the cursor
 set showcmd " show partial commands
-set showmode "show the mode you're in
+" set showmode "show the mode you're in
+set noshowmode " disabled for lightline
 set tabstop=2 shiftwidth=2
 set visualbell "no beeping
 set wildmenu
@@ -120,8 +145,8 @@ set wildmode=full
 
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
-" set cursorline "highlight current line
-set cursorcolumn
+set cursorline "highlight current line / slows scrolling down though :(
+"set cursorcolumn
 
 set laststatus=2
 set statusline=%f\ %m\%=L:\ %l/%L\ col\:\ %c\ \[buffer:\ %n\]\[%p\%%]
@@ -240,7 +265,7 @@ cnoreabbrev ag Ack
 cnoreabbrev aG Ack
 cnoreabbrev Ag Ack
 cnoreabbrev AG Ack
-noremap <Leader>a :Ack<space>
+noremap <Leader>a :Ack!<space>
 
 " *.rabl should be considered Ruby
 au BufNewFile,BufRead *.rabl set filetype=ruby
@@ -281,23 +306,25 @@ set tags=.git/tags
 
 function! Changebackground()
   if &background == 'light'
-    color solarized
     set background=dark
+    color moonfly
   else
-    color hemisu
     set background=light
+    color hemisu
   endif
 endfunction
-nnoremap <leader>sl :call Changebackground()<CR>
+nnoremap <leader>cb :call Changebackground()<CR>
 
 function! ChangeBackgroundTint()
   if &background == 'light'
     set background=dark
+    color solarized8_dark_high
   else
     set background=light
+    color solarized8_light_high
   endif
 endfunction
-nnoremap <leader>cb :call ChangeBackgroundTint()<CR>
+nnoremap <leader>cbt :call ChangeBackgroundTint()<CR>
 
 function! To19Hash()
   '<,'>s/:\(\w\+\)\s=>/\1:
@@ -319,22 +346,45 @@ nnoremap <silent> <leader>z :call <sid>zoom()<cr>
 " Alchemist
 nmap <leader>h :IExHide<CR>
 
+" Elm-vim
+" let g:elm_format_autosave = 1
+
+" vim-go
+" let g:go_fmt_autosave = 1
+
 " fzf
 noremap <Leader>f :Files<CR>
 
-let g:deoplete#enable_at_startup = 1
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" Deoplete
+let g:deoplete#enable_at_startup = 0
+augroup insertload
+  autocmd!
+  autocmd InsertEnter * call deoplete#enable() | autocmd! insertload
+augroup END
 
-" if $TERM !~# '^\%(screen\|tmux\)'
-"   set termguicolors
-" else
-"   set notermguicolors
-" endif
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_typescript_checkers = ['tslint']
+
+" Prettier
+" let g:prettier#autoformat = 0
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
+" let g:prettier#config#tab_width = 4
+" let g:prettier#config#trailing_comma = 'none'
+" let g:prettier#config#bracket_spacing = 'true'
+" let g:prettier#config#single_quote = 'false'
+
 " vim-airline
-let g:airline_theme='papercolor'
-
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" let g:airline_theme='papercolor'
 
 set background=dark
-colorscheme moonfly
+colorscheme molokai
