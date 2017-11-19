@@ -15,9 +15,9 @@ Plug 'kchmck/vim-coffee-script'
 " rbenv ctags <version>
 Plug 'tpope/rbenv-ctags'
 Plug 'pangloss/vim-javascript'
-Plug 'ElmCast/elm-vim'
+" Plug 'ElmCast/elm-vim'
 " Plug 'rhysd/vim-crystal'
-Plug 'fatih/vim-go'
+" Plug 'fatih/vim-go'
 
 " Colorschemes
 Plug 'NLKNguyen/papercolor-theme'
@@ -36,6 +36,15 @@ Plug 'danilo-augusto/vim-afterglow'
 Plug 'lifepillar/vim-solarized8'
 " Plug 'felixhummel/setcolors.vim'
 Plug 'bluz71/vim-moonfly-colors'
+Plug 'tomasiser/vim-code-dark'
+Plug 'zanglg/nova.vim'
+Plug 'aunsira/macvim-light'
+Plug 'gerardbm/vim-atomic'
+Plug 'rakr/vim-two-firewatch'
+Plug 'reedes/vim-colors-pencil'
+Plug 'sjl/badwolf'
+Plug 'ujihisa/unite-colorscheme'
+Plug 'flazz/vim-colorschemes'
 
 " Stuff
 Plug 'tpope/vim-unimpaired'
@@ -50,6 +59,8 @@ Plug 'rking/ag.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-signify'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -211,7 +222,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)\tags\tmp$'
 let g:ctrlp_max_files = 5000
 
-noremap <Leader>pb :CtrlPBuffer<CR>
 noremap <Leader>q :bd<space>
 
 " https://github.com/ivalkeen/vim-ctrlp-tjump
@@ -272,6 +282,18 @@ function! s:Marko()
   endif
 endfunction
 
+" fzf
+noremap <Leader>f :Files<CR>
+noremap ; :Buffers<CR>
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
 " Zoom
 function! s:zoom()
   if winnr('$') > 1
@@ -300,4 +322,4 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set guifont=Menlo:h13 " Macvim font
 set background=dark
 " color PaperColor
-colorscheme moonfly
+colorscheme seti

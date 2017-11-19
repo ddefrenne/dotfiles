@@ -15,31 +15,40 @@ Plug 'kchmck/vim-coffee-script'
 " rbenv ctags <version>
 Plug 'tpope/rbenv-ctags'
 Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
 " Plug 'ElmCast/elm-vim'
-" Plug 'fatih/vim-go'
+Plug 'fatih/vim-go'
 " Plug 'rhysd/vim-crystal'
 
 " Colorschemes
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'jacoborus/tender.vim'
 Plug 'ajh17/Spacegray.vim'
-Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
 " Plug 'tomasr/molokai'
-" Plug 'iCyMind/NeoSolarized'
+Plug 'iCyMind/NeoSolarized'
 Plug 'trusktr/seti.vim'
-" Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 Plug 'romainl/Apprentice'
-" Plug 'albertorestifo/github.vim'
+Plug 'albertorestifo/github.vim'
 Plug 'wimstefan/Lightning'
-" Plug 'rakr/vim-one'
 Plug 'w0ng/vim-hybrid'
 Plug 'danilo-augusto/vim-afterglow'
 " Plug 'lifepillar/vim-solarized8'
 " Plug 'felixhummel/setcolors.vim'
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'tomasiser/vim-code-dark'
+Plug 'zanglg/nova.vim'
+Plug 'aunsira/macvim-light'
+Plug 'gerardbm/vim-atomic'
+Plug 'rakr/vim-two-firewatch'
+Plug 'reedes/vim-colors-pencil'
+Plug 'sjl/badwolf'
+Plug 'ujihisa/unite-colorscheme'
+Plug 'flazz/vim-colorschemes'
+Plug 'fxn/vim-monochrome'
+Plug 'arcticicestudio/nord-vim'
 
 " Linters
 " Plug 'maksimr/vim-jsbeautify'
@@ -51,7 +60,9 @@ Plug 'prettier/vim-prettier', {
 " Stuff
 Plug 'Shougo/deoplete.nvim'
 ", { 'do': ':UpdateRemotePlugins' } <-- re-enable later on, after https://github.com/neovim/neovim/pull/5856
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
+Plug 'ap/vim-css-color'
 
 " Plug 'Shougo/echodoc.vim'
 Plug 'tpope/vim-unimpaired'
@@ -64,10 +75,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mileszs/ack.vim'
 Plug 'tomtom/tcomment_vim'
-" Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-signify'
 Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'sbdchd/neoformat'
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -87,6 +99,7 @@ augroup myfiletypes
   autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
   autocmd FileType ruby,eruby,yaml setlocal path+=lib
   autocmd FileType typescript setlocal sw=4 sts=4
+  autocmd FileType go setlocal sw=4 sts=4
   " autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 
   " Run NeoMake on read and write operations
@@ -145,7 +158,7 @@ set wildmode=full
 
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
-set cursorline "highlight current line / slows scrolling down though :(
+" set cursorline "highlight current line / slows scrolling down though :(
 "set cursorcolumn
 
 set laststatus=2
@@ -164,7 +177,7 @@ set ignorecase "searches are case insensitive...
 set smartcase " ... unless they contain at least one capital letter
 
 " Incremental (“live”) :substitute
-set inccommand=split
+" set inccommand=split
 
 " Autoremove trailing whitespace
 fun! <SID>StripTrailingWhitespaces()
@@ -187,6 +200,11 @@ augroup END
 au FocusGained,BufEnter * :silent! !
 " Resize splits when the window is resized
 au VimResized * :wincmd =
+
+" Enable this when Elixir 1.6 has been released and installed. Will
+" auto-format on save: http://devonestes.herokuapp.com/everything-you-need-to-know-about-elixirs-new-formatter
+"autocmd BufWritePost *.exs silent :!mix format %
+"autocmd BufWritePost *.ex silent :!mix format %
 
 let mapleader=","
 
@@ -307,10 +325,10 @@ set tags=.git/tags
 function! Changebackground()
   if &background == 'light'
     set background=dark
-    color moonfly
+    color two-firewatch
   else
     set background=light
-    color hemisu
+    color visualstudio
   endif
 endfunction
 nnoremap <leader>cb :call Changebackground()<CR>
@@ -354,6 +372,15 @@ nmap <leader>h :IExHide<CR>
 
 " fzf
 noremap <Leader>f :Files<CR>
+noremap <Leader>b :Buffers<CR>
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 " Deoplete
 let g:deoplete#enable_at_startup = 0
@@ -362,18 +389,22 @@ augroup insertload
   autocmd InsertEnter * call deoplete#enable() | autocmd! insertload
 augroup END
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ }
 
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_typescript_checkers = ['tslint']
+" " Syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+"
+" let g:syntastic_always_populate_loc_list = 0
+" let g:syntastic_auto_loc_list = 2
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+"
+" let g:syntastic_javascript_checkers = ['jshint']
+" let g:syntastic_typescript_checkers = ['tslint']
 
 " Prettier
 " let g:prettier#autoformat = 0
@@ -386,5 +417,8 @@ let g:syntastic_typescript_checkers = ['tslint']
 " vim-airline
 " let g:airline_theme='papercolor'
 
+" abra OceanicNext railscasts molokai atomic
+set termguicolors
 set background=dark
-colorscheme molokai
+let g:nord_comment_brightness = 12
+colorscheme nord
