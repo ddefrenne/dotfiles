@@ -4,17 +4,18 @@ alias zconf="v ~/.zshrc"
 alias vconf="v ~/.vimrc"
 alias tconf="v ~/.tmux.conf"
 alias gvconf="v ~/.gvimrc"
-alias nvconf="v ~/.nvimrc"
+alias nvconf="nv ~/.nvimrc"
 
 alias v="vim"
 alias gv="vim"
-alias nv="nvim"
+alias nv="NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
 alias b="bundle"
 alias be="bundle exec"
 
 alias time="noglob time -p"
 
 # alias ls="ls --color=auto"
+alias ls="ls -F"
 alias dc="docker-compose "
 alias dcr="docker-compose run "
 
@@ -33,6 +34,7 @@ alias gp="git pull --rebase origin "
 alias prunegit='git remote prune origin && git gc --prune=now && git gc --aggressive && git tag -l | xargs git tag -d && git fetch --tags'
 alias push_it='git push origin'
 alias push_it_real_good='git push --force-with-lease origin'
+alias prod_tag='git tag -d production; git push origin :production; git tag -a production -m production; g push origin --tags'
 
 # Suffix aliases, 'open with...'
 alias -s rb=v
@@ -43,11 +45,12 @@ alias -s log="tail -f"
 #-----------
 alias ctagsr="ctags -R --exclude=log --exclude=coverage --exclude=.git -h 'rb.js.coffee.scss.html.haml.yml' -f .tags -f tags &> /dev/null"
 alias gtagsr="gtags --gtagslabel=ctags"
-alias bu="cd $HOME && brew up --rebase && cd -"
+alias bu="cd $HOME && brew up && cd -"
 alias rss="sudo nginx -s stop && sudo nginx && bundle exec rails server"
-alias ltc="grep --color=auto "" $1 | less -FR" 
+alias ltc="grep --color=auto "" $1 | less -FR"
 alias rgsr="gem search -r \^$1\$"
 alias restoredb="gunzip < $1 | mysql -p $2"
+alias ism="iex -S mix"
 
 #-----------
 # Tmux
